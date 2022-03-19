@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@types/styled-components": "^5.1.24",
     "gatsby": "^4.8.0",
     "gatsby-plugin-gatsby-cloud": "^4.8.0",
     "gatsby-plugin-image": "^2.8.0",
@@ -17,7 +18,9 @@
     "prop-types": "^15.8.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.2.2",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "prettier": "^2.5.1"
