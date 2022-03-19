@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
           theme.colors.backgrounds.pageBackground};
         height:100%;
         width:100%;
+        padding: 0px ${({ theme }) => theme.spacers.size20};
     }
 
     * {

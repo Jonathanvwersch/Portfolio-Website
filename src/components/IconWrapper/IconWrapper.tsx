@@ -3,10 +3,21 @@ import styled from "styled-components"
 
 interface IconWrapperProps {
   handleClick?: () => void
+  styles?: React.CSSProperties
+  as?: any
 }
 
-const IconWrapper: React.FC<IconWrapperProps> = ({ children, handleClick }) => {
-  return <StyledIconWrapper onClick={handleClick}>{children}</StyledIconWrapper>
+const IconWrapper: React.FC<IconWrapperProps> = ({
+  children,
+  handleClick,
+  styles,
+  as,
+}) => {
+  return (
+    <StyledIconWrapper as={as} style={styles} onClick={handleClick}>
+      {children}
+    </StyledIconWrapper>
+  )
 }
 
 const StyledIconWrapper = styled.button`
@@ -15,6 +26,8 @@ const StyledIconWrapper = styled.button`
   align-items: center;
   position: relative;
   cursor: pointer;
+  background: transparent;
+  border: none;
 `
 
 export default IconWrapper

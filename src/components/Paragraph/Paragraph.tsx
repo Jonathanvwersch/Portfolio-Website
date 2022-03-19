@@ -45,7 +45,7 @@ const StyledParagraph = styled.div<ParagraphProps>`
   font-weight: ${({ fontWeight }) => fontWeight};
   color: ${({ fontColor, theme }) =>
     fontColor ? fontColor : theme.colors.fontColor};
-  margin: 0;
+  margin: ${({ margin }) => margin || 0};
   max-width: ${({ maxWidth }) => maxWidth};
   white-space: ${({ whiteSpace }) => whiteSpace};
   text-decoration: ${({ textDecoration }) => textDecoration};

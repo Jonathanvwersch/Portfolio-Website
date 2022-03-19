@@ -6,6 +6,7 @@ export type ThemeColors = {
   iconColor: string
   fontColor: string
   outline: string
+  highlightFont: string
   iconHover: string
   oppositeFontColor: string
   grey1: string
@@ -62,6 +63,7 @@ export type ThemeType = {
     lineHeight: string
     lineHeightSmall: string
     fontFamily: string
+    fontFamilyMono: string
 
     fontWeights: {
       light: string
@@ -147,6 +149,7 @@ const lightThemeColors: ThemeColors = {
   iconColor: "#2C2C31",
   outline: "#64FFDA",
   fontColor: "#2C2C31",
+  highlightFont: "#ccd6f6",
   iconHover: "rgba(60, 45, 40, 0.1)",
   oppositeFontColor: "#FFFFFFE6",
   grey1: "#A9A9A9", // dark
@@ -156,6 +159,7 @@ const lightThemeColors: ThemeColors = {
   disabled: "#D3D3D3",
   selection: "#B1FAFF",
   backgrounds: {
+    modalBackground: "FFF",
     pageBackground: "#FFF",
   },
   hover: {
@@ -164,32 +168,6 @@ const lightThemeColors: ThemeColors = {
   active: {
     filter: "brightness(90%)",
   },
-  colorPicker: {
-    background: {
-      default: "#FFFFFF",
-      red: "#FBE4E4",
-      orange: "#FAEBDD",
-      yellow: "#FBF3DB",
-      green: "#DDEDEA",
-      blue: "#DDEBF1",
-      indigo: "#EAE4F2",
-      violet: "#F4DFEB",
-      grey: "#EBECED",
-      brown: "#E9E5E3",
-    },
-    text: {
-      default: "#2C2C31",
-      primary: "#00B6CE",
-      red: "#E81123",
-      orange: "#F7630D",
-      yellow: "#FABD14",
-      green: "#0F893E",
-      blue: "#3971D1",
-      indigo: "#4B0082",
-      violet: "#AC008C",
-      grey: "#84939A",
-    },
-  },
 }
 
 const darkThemeColors: ThemeColors = {
@@ -197,10 +175,11 @@ const darkThemeColors: ThemeColors = {
   secondary: "#474C50",
   danger: "#DB524B",
   success: "#0CCA4A",
-  iconColor: "#F0F0F0",
+  iconColor: "#64FFDA",
   outline: "#64FFDA",
-  fontColor: "#CCD6F6",
+  fontColor: "#A8B2D1",
   iconHover: "#5C5C5C",
+  highlightFont: "#ccd6f6",
   oppositeFontColor: "#2C2C31",
   grey1: "#E0E0E0", // light
   grey2: "#9E9E9E", // mid
@@ -258,10 +237,13 @@ export const theme = (darkTheme?: boolean): ThemeType => {
         size70: "70px",
       },
 
-      lineHeight: "1.6",
-      lineHeightSmall: "1.4",
+      lineHeight: "1.4",
+      lineHeightSmall: "1",
 
-      fontFamily: "DM Sans, sans-serif",
+      fontFamily:
+        "-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif",
+      fontFamilyMono:
+        "SF Mono, SFMono-Regular, ui-monospace, DejaVu Sans Mono, Menlo, Consolas, monospace",
 
       fontWeights: {
         light: "300",

@@ -4,10 +4,10 @@ export const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0px ${({ theme }) => theme.spacers.size48};
   height: ${({ theme }) => theme.spacers.size96};
 `
 
@@ -19,15 +19,22 @@ export const StyledNav = styled.nav`
   height: 100%;
 `
 
-export const NavLinks = styled.ol`
+export const NavLinks = styled.ol<{ isVertical?: boolean }>`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0px;
   margin: 0px;
+  gap: ${({ theme, isVertical }) =>
+    isVertical ? theme.spacers.size20 : theme.spacers.size12};
   list-style: none;
   position: relative;
-  font-size: ${({ theme }) => theme.typography.fontSizes.size12};
+  a {
+    font-size: ${({ theme, isVertical }) =>
+      isVertical
+        ? theme.typography.fontSizes.size14
+        : theme.typography.fontSizes.size12};
+  }
 
   li:nth-child(1) {
     transition-delay: 0ms;
@@ -43,10 +50,6 @@ export const NavLinks = styled.ol`
 
   li:nth-child(4) {
     transition-delay: 300ms;
-  }
-
-  button {
-    margin-left: ${({ theme }) => theme.spacers.size8};
   }
 
   li {
@@ -65,7 +68,9 @@ export const NavMenu = styled.aside`
   position: fixed;
   top: 0;
   bottom: 0;
+  padding: ${({ theme }) => theme.spacers.size32};
+  padding-top: ${({ theme }) => theme.spacers.size48};
   right: 0;
-  min-width: 400px;
+  min-width: 350px;
   background-color: ${({ theme }) => theme.colors.backgrounds.modalBackground};
 `

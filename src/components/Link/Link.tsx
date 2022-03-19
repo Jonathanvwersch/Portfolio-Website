@@ -1,4 +1,7 @@
-import React from "react"
+import React, {
+  HTMLAttributeAnchorTarget,
+  HTMLAttributeReferrerPolicy,
+} from "react"
 import styled from "styled-components"
 
 interface LinkProps {
@@ -15,18 +18,10 @@ interface LinkProps {
   textAlign?: string
   userSelect?: string
   hreflang?: string
-  target?: string
+  target?: HTMLAttributeAnchorTarget
+  openInNewTab?: boolean
   rel?: string
-  referrerPolicy?:
-    | ""
-    | "no-referrer"
-    | "no-referrer-when-downgrade"
-    | "origin"
-    | "origin-when-cross-origin"
-    | "same-origin"
-    | "strict-origin"
-    | "strict-origin-when-cross-origin"
-    | "unsafe-url"
+  referrerPolicy?: HTMLAttributeReferrerPolicy
   type?: string
   ping?: string
   style?: React.CSSProperties
@@ -37,7 +32,10 @@ const Link: React.FC<LinkProps> = ({ children, ...props }) => {
     <StyledLink
       {...props}
       className={props.className}
-      referrerPolicy={props.referrerPolicy}
+      {...(props.openInNewTab && {
+        target: "_blank",
+        rel: "noopener noreferrer",
+      })}
     >
       {children}
     </StyledLink>
