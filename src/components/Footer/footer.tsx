@@ -1,5 +1,5 @@
 import * as React from "react"
-import { StyledFooter } from "./footer.styles"
+import { StyledFooter } from "./Footer.styles"
 import { Flex } from "@rebass/grid"
 import { GithubIcon, LinkedInIcon, TwitterIcon } from "../../icons"
 import { ThemeContext } from "styled-components"

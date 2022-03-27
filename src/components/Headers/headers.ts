@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { commonStyles, headingStyles } from "./header.styles"
+import { commonStyles, headingStyles } from "./Headers.styles"
 
 type HeadingTagName =
   | "xLargeH1"
