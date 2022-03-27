@@ -1,5 +1,5 @@
 import { css } from "styled-components"
-import { HeadingProps } from "./Headers"
+import { HeadingProps } from "./Header.styles"
 
 export const commonStyles = css<HeadingProps>`
   margin: ${({ margin }) => margin};
