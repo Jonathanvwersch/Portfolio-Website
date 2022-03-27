@@ -1,16 +1,18 @@
-import { useContext, useLayoutEffect, useState } from "react"
-import { ThemeContext } from "styled-components"
+import { useLayoutEffect, useState } from "react"
 
 export type Layout = "vertical" | "horizontal"
 export const LAYOUT_VERTICAL = "vertical"
 export const LAYOUT_HORIZONTAL = "horizontal"
+const BREAKPOINT = 768
+const isBrowser = typeof window !== "undefined"
 
 const useResponsiveLayout = (breakpoint?: number): Layout => {
-  const theme = useContext(ThemeContext)
-  const appBreakpoint = breakpoint ? breakpoint : theme.breakpoints.medium
+  const appBreakpoint = breakpoint ? breakpoint : BREAKPOINT
 
   const [layout, setLayout] = useState(
-    window.innerWidth < appBreakpoint ? LAYOUT_VERTICAL : LAYOUT_HORIZONTAL
+    isBrowser && window.innerWidth < appBreakpoint
+      ? LAYOUT_VERTICAL
+      : LAYOUT_HORIZONTAL
   )
 
   useLayoutEffect(() => {
