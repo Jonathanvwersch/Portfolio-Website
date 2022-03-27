@@ -1,5 +1,5 @@
 import * as React from "react"
-import { NavLinks, NavMenu, StyledHeader, StyledNav } from "./Headffers.styles"
+import { NavLinks, NavMenu, StyledHeader, StyledNav } from "./Header"
 import { CloseIcon, LogoIcon, MenuIcon } from "../../icons"
 import { IconWrapper, Link } from ".."
 import { useOutsideClickListener, useResponsiveLayout } from "../../utils"
