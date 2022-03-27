@@ -1,81 +1,79 @@
-import styled from "styled-components"
-import { commonStyles, headingStyles } from "./fff"
+import { css } from "styled-components"
+import { HeadingProps } from "./Headers"
 
-type HeadingTagName =
-  | "xLargeH1"
-  | "largeH1"
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "h6"
+export const commonStyles = css<HeadingProps>`
+  margin: ${({ margin }) => margin};
+  padding: ${({ padding }) => padding};
+  color: ${({ theme, fontColor }) =>
+    fontColor ? fontColor : theme.colors.fontColor};
+  text-align: ${({ textAlign }) => textAlign};
+  font-family: ${({ fontFamily, theme }) =>
+    fontFamily ? fontFamily : theme.typography.fontFamily};
+`
 
-export type HeadingProps = {
-  fontColor?: string
-  fontFamily?: string
-  styledAs?: HeadingTagName
-  textAlign?: string
-  margin?: string
-  padding?: string
+export const headingStyles = {
+  xLargeH1: css`
+    font-size: ${({ theme }) => theme.typography.fontSizes.size70};
+    line-height: ${({ theme }) => theme.typography.lineHeight};
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.small}px) {
+      font-size: ${({ theme }) => theme.typography.fontSizes.size60};
+    }
+  `,
+  largeH1: css`
+    font-size: ${({ theme }) => theme.typography.fontSizes.size60};
+    line-height: ${({ theme }) => theme.typography.lineHeight};
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.small}px) {
+      font-size: ${({ theme }) => theme.typography.fontSizes.size54};
+    }
+  `,
+  h1: css`
+    font-size: ${({ theme }) => theme.typography.fontSizes.size54};
+    line-height: ${({ theme }) => theme.typography.lineHeightSmall};
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.small}px) {
+      font-size: ${({ theme }) => theme.typography.fontSizes.size42};
+    }
+  `,
+  h2: css`
+    font-size: ${({ theme }) => theme.typography.fontSizes.size42};
+    line-height: ${({ theme }) => theme.typography.lineHeightSmall};
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.small}px) {
+      font-size: ${({ theme }) => theme.typography.fontSizes.size32};
+    }
+  `,
+  h3: css`
+    font-size: ${({ theme }) => theme.typography.fontSizes.size32};
+    line-height: ${({ theme }) => theme.typography.lineHeightSmall};
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.small}px) {
+      font-size: ${({ theme }) => theme.typography.fontSizes.size26};
+    }
+  `,
+  h4: css`
+    font-size: ${({ theme }) => theme.typography.fontSizes.size26};
+    line-height: ${({ theme }) => theme.typography.lineHeightSmall};
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.small}px) {
+      font-size: ${({ theme }) => theme.typography.fontSizes.size20};
+    }
+  `,
+  h5: css`
+    font-size: ${({ theme }) => theme.typography.fontSizes.size20};
+    line-height: ${({ theme }) => theme.typography.lineHeightSmall};
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.small}px) {
+      font-size: ${({ theme }) => theme.typography.fontSizes.size16};
+    }
+  `,
+  h6: css`
+    font-size: ${({ theme }) => theme.typography.fontSizes.size16};
+    line-height: ${({ theme }) => theme.typography.lineHeightSmall};
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.small}px) {
+      font-size: ${({ theme }) => theme.typography.fontSizes.size12};
+    }
+  `,
 }
-
-export const H1 = styled.h1<HeadingProps>`
-  ${commonStyles}
-  ${({ styledAs }) => {
-    if (styledAs) {
-      return headingStyles[styledAs]
-    }
-    return headingStyles.h1
-  }}
-`
-
-export const H2 = styled.h2<HeadingProps>`
-  ${commonStyles}
-  ${({ styledAs }) => {
-    if (styledAs) {
-      return headingStyles[styledAs]
-    }
-    return headingStyles.h2
-  }}
-`
-
-export const H3 = styled.h3<HeadingProps>`
-  ${commonStyles}
-  ${({ styledAs }) => {
-    if (styledAs) {
-      return headingStyles[styledAs]
-    }
-    return headingStyles.h3
-  }}
-`
-
-export const H4 = styled.h4<HeadingProps>`
-  ${commonStyles}
-  ${({ styledAs }) => {
-    if (styledAs) {
-      return headingStyles[styledAs]
-    }
-    return headingStyles.h4
-  }}
-`
-
-export const H5 = styled.h5<HeadingProps>`
-  ${commonStyles}
-  ${({ styledAs }) => {
-    if (styledAs) {
-      return headingStyles[styledAs]
-    }
-    return headingStyles.h5
-  }}
-`
-
-export const H6 = styled.h6<HeadingProps>`
-  ${commonStyles}
-  ${({ styledAs }) => {
-    if (styledAs) {
-      return headingStyles[styledAs]
-    }
-    return headingStyles.h6
-  }}
-`
