@@ -5,7 +5,7 @@ import { IconType } from "../definitions"
 
 const LogoIcon = ({ color, size }: IconType) => {
   const theme = useContext(ThemeContext)
-  const iconColor = color ? color : theme.colors.outline
+  const iconColor = color ? color : theme.colors.primary
 
   return (
     <Svg size={size || "40px"} viewBox="0 0 200 200" fill="none">

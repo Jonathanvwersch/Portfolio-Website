@@ -9,6 +9,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   justify-content: center;
   height: ${({ theme }) => theme.spacers.size96};
+  background-color: ${({ theme }) => theme.colors.backgrounds.pageBackground};
 `
 
 export const StyledNav = styled.nav`
@@ -53,10 +54,9 @@ export const NavLinks = styled.ol<{ isVertical?: boolean }>`
   }
 
   li {
-    counter-increment: link 1;
+    font-family: ${({ theme }) => theme.typography.fontFamilyMono};
     a::before {
-      color: ${({ theme }) => theme.colors.outline};
-      content: "0" counter(link) ".";
+      color: ${({ theme }) => theme.colors.primary};
       margin-right: ${({ theme }) => theme.spacers.size8};
       text-align: right;
     }

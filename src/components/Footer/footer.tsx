@@ -1,7 +1,7 @@
 import * as React from "react"
 import { StyledFooter } from "./footer.styles"
 import { Flex } from "@rebass/grid"
-import { GithubIcon, LinkedInIcon } from "../../icons"
+import { GithubIcon, LinkedInIcon, TwitterIcon } from "../../icons"
 import { ThemeContext } from "styled-components"
 import { useContext } from "react"
 import { IconWrapper, Link, Paragraph } from ".."
@@ -29,8 +29,26 @@ const Footer = () => {
             <GithubIcon />
           </Link>
         </IconWrapper>
+        <IconWrapper as="li">
+          <Link
+            href="https://www.linkedin.com/in/jonathan-van-wersch"
+            openInNewTab
+          >
+            <TwitterIcon />
+          </Link>
+        </IconWrapper>
       </Flex>
-      <Paragraph>Designed and built by Jonathan van Wersch</Paragraph>
+      <Paragraph>
+        Built by Jonathan van Wersch. Design is heavily inspired by{" "}
+        <Link
+          href="https://brittanychiang.com/"
+          openInNewTab
+          textDecoration="underline"
+        >
+          Brittany Chiang's porfolio
+        </Link>
+        .
+      </Paragraph>
     </StyledFooter>
   )
 }

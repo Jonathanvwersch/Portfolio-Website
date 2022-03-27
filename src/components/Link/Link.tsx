@@ -50,10 +50,15 @@ const StyledLink = styled.a<LinkProps>`
     fontColor ? fontColor : theme.colors.fontColor};
   margin: 0;
   max-width: ${({ maxWidth }) => maxWidth};
-  text-decoration: ${({ textDecoration }) => textDecoration || "none"};
   text-align: ${({ textAlign }) => textAlign};
   user-select: ${({ userSelect }) => userSelect};
   cursor: pointer;
+  text-decoration: ${({ textDecoration }) =>
+    textDecoration || "none"}!important;
+
+  &:hover {
+    text-decoration: ${({ textDecoration }) => textDecoration || "none"};
+  }
 
   &.overflow {
     text-overflow: ellipsis;
@@ -62,7 +67,7 @@ const StyledLink = styled.a<LinkProps>`
   }
 
   &:hover {
-    color: ${({ theme }) => theme.colors.outline};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `
 

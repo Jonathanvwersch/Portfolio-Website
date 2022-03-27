@@ -84,8 +84,8 @@ export const StyledButton = styled.button<ButtonProps>`
 
 export const ButtonPrimary = css`
   background-color: transparent;
-  color: ${({ theme }) => theme.colors.outline};
-  border: solid 1px ${({ theme }) => theme.colors.outline};
+  color: ${({ theme }) => theme.colors.primary};
+  border: solid 1px ${({ theme }) => theme.colors.primary};
 `
 
 export const ButtonSecondary = css`

@@ -7,6 +7,7 @@ export const StyledFooter = styled.footer`
   min-height: 70px;
   text-align: center;
   flex-direction: column;
-  padding: ${({ theme }) => theme.spacers.size16};
+  padding: ${({ theme }) => theme.spacers.size32}
+    ${({ theme }) => theme.spacers.size16};
   gap: ${({ theme }) => theme.spacers.size20};
 `

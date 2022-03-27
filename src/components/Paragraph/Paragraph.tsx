@@ -37,7 +37,7 @@ const Paragraph: React.FC<ParagraphProps> = ({ children, ...props }) => {
   )
 }
 
-const StyledParagraph = styled.div<ParagraphProps>`
+const StyledParagraph = styled.p<ParagraphProps>`
   font-size: ${({ fontSize, theme }) =>
     fontSize ? fontSize : theme.typography.fontSizes.size12};
   font-family: ${({ fontFamily, theme }) =>

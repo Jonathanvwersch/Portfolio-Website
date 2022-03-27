@@ -1,15 +1,20 @@
 import * as React from "react"
 import { NavLinks, NavMenu, StyledHeader, StyledNav } from "./header.styles"
 import { CloseIcon, LogoIcon, MenuIcon } from "../../icons"
-import { Button, IconWrapper, Link } from ".."
+import { IconWrapper, Link } from ".."
 import { useOutsideClickListener, useResponsiveLayout } from "../../utils"
 import { LAYOUT_VERTICAL } from "../../utils/hooks/useResponsiveLayout"
 import { ThemeContext } from "styled-components"
 import { useContext, useEffect, useRef, useState } from "react"
 import { SIZES } from "../../definitions"
-// @ts-ignore
-import Resume from "../../pdfs/Jvw_Resume.pdf"
-import { Flex } from "@rebass/grid"
+
+const navDetails = [
+  { href: "About", title: "About" },
+  { href: "Skills", title: "Skills" },
+  { href: "Work", title: "Work and Education" },
+  { href: "Projects", title: "Projects" },
+  { href: "Contact", title: "Contact" },
+]
 
 const Header = () => {
   const layout = useResponsiveLayout()
@@ -28,18 +33,11 @@ const Header = () => {
       style={{ flexDirection: isVertical ? "column" : "row" }}
       isVertical={isVertical}
     >
-      <li>
-        <Link href="/#About">About</Link>
-      </li>
-      <li>
-        <Link href="/#Work">Work</Link>
-      </li>
-      <li>
-        <Link href="/#Projects">Projects</Link>
-      </li>
-      <li>
-        <Link href="/#Contact">Contact</Link>
-      </li>
+      {navDetails.map(({ href, title }) => (
+        <li key={title} onClick={() => setShowMenu(false)}>
+          <Link href={`/#${href}`}>{title}</Link>
+        </li>
+      ))}
     </NavLinks>
   )
 

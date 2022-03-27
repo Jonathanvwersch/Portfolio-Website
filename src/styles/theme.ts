@@ -6,6 +6,7 @@ export type ThemeColors = {
   iconColor: string
   fontColor: string
   outline: string
+  faintColor: string
   highlightFont: string
   iconHover: string
   oppositeFontColor: string
@@ -18,6 +19,7 @@ export type ThemeColors = {
   backgrounds: {
     pageBackground: string
     modalBackground: string
+    lightbox: string
   }
   hover: {
     filter: string
@@ -149,6 +151,7 @@ const lightThemeColors: ThemeColors = {
   iconColor: "#2C2C31",
   outline: "#64FFDA",
   fontColor: "#2C2C31",
+  faintColor: "#233554",
   highlightFont: "#ccd6f6",
   iconHover: "rgba(60, 45, 40, 0.1)",
   oppositeFontColor: "#FFFFFFE6",
@@ -161,6 +164,7 @@ const lightThemeColors: ThemeColors = {
   backgrounds: {
     modalBackground: "FFF",
     pageBackground: "#FFF",
+    lightbox: "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))",
   },
   hover: {
     filter: "brightness(92%)",
@@ -171,25 +175,27 @@ const lightThemeColors: ThemeColors = {
 }
 
 const darkThemeColors: ThemeColors = {
-  primary: "#0094ce",
-  secondary: "#474C50",
+  primary: "#03DA86",
+  secondary: "#BB86FC",
   danger: "#DB524B",
   success: "#0CCA4A",
-  iconColor: "#64FFDA",
+  iconColor: "#03DA86",
   outline: "#64FFDA",
-  fontColor: "#A8B2D1",
+  fontColor: "#ffffff",
   iconHover: "#5C5C5C",
   highlightFont: "#ccd6f6",
+  faintColor: "#5d516b",
   oppositeFontColor: "#2C2C31",
-  grey1: "#E0E0E0", // light
+  grey1: "#B3B3B3", // light
   grey2: "#9E9E9E", // mid
   grey3: "#616161", // dark
   loadingBlocks: "#5C5C5C",
   disabled: "#616161",
   selection: "#474C50",
   backgrounds: {
-    pageBackground: "#0a192f",
+    pageBackground: "#121212",
     modalBackground: "#112240",
+    lightbox: "rgba(0, 0, 0, 0.8)",
   },
   hover: {
     filter: "brightness(115%)",

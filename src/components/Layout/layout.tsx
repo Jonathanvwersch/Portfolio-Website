@@ -17,10 +17,53 @@ const Layout = ({ children }) => {
 const Main = styled.main`
   margin: 0px auto;
   width: 100%;
-  max-width: 1200px;
+  max-width: 800px;
   min-height: 100vh;
+  counter-reset: section;
+
   section {
-    padding: ${({ theme }) => theme.spacers.size48} 0px;
+    display: flex;
+    flex-direction: column;
+    padding: ${({ theme }) => theme.spacers.size80} 0px;
+    margin-bottom: ${({ theme }) => theme.spacers.size64};
+  }
+
+  .numbered-header {
+    counter-increment: link 1;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+
+    font-family: ${({ theme }) => theme.typography.fontFamilyMono};
+    margin-bottom: ${({ theme }) => theme.spacers.size32};
+    font-size: ${({ theme }) => theme.typography.fontSizes.size18};
+
+    &.contact {
+      margin-bottom: 0px;
+      justify-content: center;
+      margin: auto;
+    }
+
+    &.after-single-line {
+      &:after {
+        content: "";
+        display: block;
+        width: 280px;
+        background: ${({ theme }) => theme.colors.faintColor};
+        filter: brightness(100%);
+        height: 1px;
+        margin-left: ${({ theme }) => theme.spacers.size16};
+      }
+    }
+
+    &:before {
+      font-size: ${({ theme }) => theme.typography.fontSizes.size14};
+      color: ${({ theme }) => theme.colors.primary};
+      counter-increment: section 1;
+      content: "0" counter(section) ".";
+      margin-right: ${({ theme }) => theme.spacers.size8};
+      text-align: right;
+    }
   }
 
   section:nth-child(1) {

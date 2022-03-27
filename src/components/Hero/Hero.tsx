@@ -18,15 +18,15 @@ const Hero: React.FC<HeroProps> = () => {
         margin={`0px 0px ${theme.spacers.size16}`}
         fontFamily={theme.typography.fontFamilyMono}
         styledAs="h4"
-        fontColor={theme.colors.outline}
+        fontColor={theme.colors.primary}
       >
         Hi, my name is
       </H1>
       <H2 margin={`0px 0px ${theme.spacers.size16}`} styledAs="h2">
         Jonathan van Wersch
       </H2>
-      <H3 fontColor={theme.colors.highlightFont} styledAs="h1">
-        I am an engineer and designer
+      <H3 fontColor={theme.colors.secondary} styledAs="h1">
+        I love building products for the web
       </H3>
       <Paragraph
         margin={`${theme.spacers.size24} 0px ${theme.spacers.size48}`}
@@ -44,11 +44,9 @@ const Hero: React.FC<HeroProps> = () => {
         </Link>
         . I love building products that make a positive difference to the world.
       </Paragraph>
-      <Button size={SIZES.MEDIUM}>
-        <Link openInNewTab href={Resume} fontColor="inherit">
-          Download my Resume
-        </Link>
-      </Button>
+      <Link openInNewTab href={Resume} fontColor="inherit">
+        <Button size={SIZES.MEDIUM}>Download my Resume</Button>
+      </Link>
     </section>
   )
 }
