@@ -149,10 +149,11 @@ const Skills = () => {
 
 const SkillList = styled.ul<{ isVertical?: boolean }>`
   display: grid;
-  grid-template-columns: repeat(
-    ${({ isVertical }) => (isVertical ? "2" : "4")},
-    minmax(140px, 200px)
-  );
+  grid-template-columns: repeat(4, minmax(140px, 200px));
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(1, minmax(140px, 200px));
+  }
 
   @media screen and (max-width: 480px) {
     grid-template-columns: repeat(1, minmax(140px, 200px));
