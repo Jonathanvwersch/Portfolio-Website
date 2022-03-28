@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 export type Layout = "vertical" | "horizontal"
 export const LAYOUT_VERTICAL = "vertical"
@@ -8,29 +8,18 @@ const isBrowser = typeof window !== "undefined"
 
 const useResponsiveLayout = (breakpoint?: number): Layout => {
   const appBreakpoint = breakpoint ? breakpoint : BREAKPOINT
+  const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0)
 
-  const [layout, setLayout] = useState(
-    isBrowser && window.innerWidth < appBreakpoint
-      ? LAYOUT_VERTICAL
-      : LAYOUT_HORIZONTAL
-  )
+  const handleWindowResize = () => {
+    setWidth(window.innerWidth)
+  }
 
-  useLayoutEffect(() => {
-    setLayout(
-      window.innerWidth < appBreakpoint ? LAYOUT_VERTICAL : LAYOUT_HORIZONTAL
-    )
-  }, [appBreakpoint])
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize)
+    return () => window.removeEventListener("resize", handleWindowResize)
+  }, [])
 
-  useLayoutEffect(() => {
-    const handleResize = () =>
-      setLayout(
-        window.innerWidth < appBreakpoint ? LAYOUT_VERTICAL : LAYOUT_HORIZONTAL
-      )
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [appBreakpoint])
-
-  return layout as Layout
+  return width < appBreakpoint ? LAYOUT_VERTICAL : LAYOUT_HORIZONTAL
 }
 
 export default useResponsiveLayout

@@ -71,37 +71,38 @@ const Skills = () => {
   const theme = useContext(ThemeContext)
   const isVertical = useResponsiveLayout() === LAYOUT_VERTICAL
   const [tab, setTab] = useState<Tabs>(Tabs.FRONTEND)
+  console.log({ isVertical })
 
-  const icons = {
-    [Tabs.FRONTEND]: (
-      <>
-        <ReactIcon size={SIZES.XLARGE} />
-        <GraphQLIcon size={SIZES.XLARGE} />
-        <CypressIcon size={SIZES.XLARGE} />
-      </>
-    ),
-    [Tabs.PROGRAMMING]: (
-      <>
-        <TypescriptIcon size={SIZES.XLARGE} />
-        <HTMLIcon size={SIZES.XLARGE} />
-        <PythonIcon size={SIZES.XLARGE} />
-      </>
-    ),
-    [Tabs.OTHER]: (
-      <>
-        <JiraIcon size={SIZES.XLARGE} />
-        <GitIcon size={SIZES.XLARGE} />
-        <FigmaIcon size={SIZES.XLARGE} />
-      </>
-    ),
-    [Tabs.BACKEND]: (
-      <>
-        <PostgresSqlIcon size={SIZES.XLARGE} />
-        <NodeJsIcon size={SIZES.XLARGE} />
-        <ApolloIcon size={SIZES.XLARGE} />
-      </>
-    ),
-  }
+  // const icons = {
+  //   [Tabs.FRONTEND]: (
+  //     <>
+  //       <ReactIcon size={SIZES.XLARGE} />
+  //       <GraphQLIcon size={SIZES.XLARGE} />
+  //       <CypressIcon size={SIZES.XLARGE} />
+  //     </>
+  //   ),
+  //   [Tabs.PROGRAMMING]: (
+  //     <>
+  //       <TypescriptIcon size={SIZES.XLARGE} />
+  //       <HTMLIcon size={SIZES.XLARGE} />
+  //       <PythonIcon size={SIZES.XLARGE} />
+  //     </>
+  //   ),
+  //   [Tabs.OTHER]: (
+  //     <>
+  //       <JiraIcon size={SIZES.XLARGE} />
+  //       <GitIcon size={SIZES.XLARGE} />
+  //       <FigmaIcon size={SIZES.XLARGE} />
+  //     </>
+  //   ),
+  //   [Tabs.BACKEND]: (
+  //     <>
+  //       <PostgresSqlIcon size={SIZES.XLARGE} />
+  //       <NodeJsIcon size={SIZES.XLARGE} />
+  //       <ApolloIcon size={SIZES.XLARGE} />
+  //     </>
+  //   ),
+  // }
 
   return (
     <section id="Skills">

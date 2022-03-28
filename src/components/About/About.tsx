@@ -13,13 +13,16 @@ const About = () => {
   const theme = useContext(ThemeContext)
   const layout = useResponsiveLayout()
   const isVertical = layout === LAYOUT_VERTICAL
+  console.log({ isVertical })
 
   return (
     <section id="About">
       <H2 className="numbered-header after-single-line">About</H2>
       <Flex
-        style={{ gap: theme.spacers.size32 }}
-        flexDirection={isVertical ? "column" : "row"}
+        style={{
+          gap: theme.spacers.size32,
+          flexDirection: isVertical ? "column" : "row",
+        }}
         alignItems="flex-start"
       >
         <Paragraph fontSize={theme.typography.fontSizes.size14}>
