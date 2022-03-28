@@ -6,24 +6,14 @@ import { Paragraph } from "../Paragraph"
 import ProfilePic from "../../images/ProfilePic.png"
 import { H2 } from "../Headers/Headers"
 import { Flex } from "@rebass/grid"
-import { useResponsiveLayout } from "../../utils"
-import { LAYOUT_VERTICAL } from "../../utils/hooks/useResponsiveLayout"
 
 const About = () => {
   const theme = useContext(ThemeContext)
-  const layout = useResponsiveLayout()
-  const isVertical = layout === LAYOUT_VERTICAL
 
   return (
     <section id="About">
       <H2 className="numbered-header after-single-line">About</H2>
-      <Flex
-        style={{
-          gap: theme.spacers.size32,
-          flexDirection: isVertical ? "column" : "row",
-        }}
-        alignItems="flex-start"
-      >
+      <MediaFlex>
         <Paragraph fontSize={theme.typography.fontSizes.size14}>
           Hello, my name is Jonathan! I come from a mixed background — I was
           born in the United States but my father is from the Netherlands and my
@@ -44,10 +34,19 @@ const About = () => {
           engineering-related side projects.
         </Paragraph>
         <Image src={ProfilePic} />
-      </Flex>
+      </MediaFlex>
     </section>
   )
 }
+
+const MediaFlex = styled(Flex)`
+  flex-direction: row;
+  align-items: flex-start;
+  gap: ${({ theme }) => theme.spacers.size32};
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+`
 
 const Image = styled.img`
   max-width: 300px;
