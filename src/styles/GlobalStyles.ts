@@ -14,6 +14,36 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
         height:100%;
         width:100%;
         padding: 0px ${({ theme }) => theme.spacers.size20};
+       
+        *::-webkit-scrollbar {
+            width: 8px;
+            height:8px;
+            cursor: auto;
+
+        }
+
+        /* Track */
+        *::-webkit-scrollbar-track {
+            background: ${({ theme }) => theme.colors.primary};
+            cursor: auto;
+            border-radius: ${({ theme }) =>
+              theme.sizes.borderRadius[SIZES.MEDIUM]};
+        }
+
+        /* Handle */
+        *::-webkit-scrollbar-thumb {
+            background: ${({ theme }) => theme.colors.fontColor};
+            cursor: auto;
+            border-radius: ${({ theme }) =>
+              theme.sizes.borderRadius[SIZES.MEDIUM]};
+            
+            &:hover: {
+                background: #B6B5B2;
+                cursor: pointer!important;
+            }
+        }
+
+
     }
 
     * {

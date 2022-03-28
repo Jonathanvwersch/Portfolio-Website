@@ -71,7 +71,6 @@ const Skills = () => {
   const theme = useContext(ThemeContext)
   const isVertical = useResponsiveLayout() === LAYOUT_VERTICAL
   const [tab, setTab] = useState<Tabs>(Tabs.FRONTEND)
-  console.log({ isVertical })
 
   // const icons = {
   //   [Tabs.FRONTEND]: (
@@ -109,7 +108,10 @@ const Skills = () => {
       <H2 className="numbered-header after-single-line">Skills</H2>
       <Flex
         width="100%"
-        style={{ borderBottom: `solid 1px ${theme.colors.faintColor}` }}
+        style={{
+          borderBottom: `solid 1px ${theme.colors.faintColor}`,
+          overflow: "auto",
+        }}
       >
         <TabButton
           isActive={tab === Tabs.PROGRAMMING}
@@ -151,6 +153,11 @@ const SkillList = styled.ul<{ isVertical?: boolean }>`
     ${({ isVertical }) => (isVertical ? "2" : "4")},
     minmax(140px, 200px)
   );
+
+  @media screen and (max-width: 480px) {
+    grid-template-columns: repeat(1, minmax(140px, 200px));
+  }
+
   gap: 0px 10px;
   padding: 0px;
   margin: 20px 0px 0px;

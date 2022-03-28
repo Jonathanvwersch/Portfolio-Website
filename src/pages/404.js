@@ -12,7 +12,7 @@ const NotFoundPage = () => {
   return (
     <ThemeProvider theme={theme(true)}>
       <GlobalStyle />
-      <NFP>
+      <Wrapper>
         <Seo title="404: Not found" />
         <H1 styledAs="largeH1">404</H1>
         <H2 styledAs="h5">That page does not exist</H2>
@@ -21,12 +21,12 @@ const NotFoundPage = () => {
             Go Home
           </Button>
         </Box>
-      </NFP>
+      </Wrapper>
     </ThemeProvider>
   )
 }
 
-const NFP = styled.div`
+const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

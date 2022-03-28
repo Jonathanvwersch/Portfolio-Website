@@ -116,6 +116,7 @@ const BulletPointsWrapper = styled.ul`
 const DescriptionWrapper = styled.div<{ image: any }>`
   background: ${({ theme }) => theme.colors.backgrounds.lightbox};
   min-height: 400px;
+  z-index: 0;
   color: ${({ theme }) => theme.colors.fontColor};
   position: relative;
   background-image: ${({ image }) => `url(${image})`};
@@ -132,10 +133,7 @@ const DescriptionWrapper = styled.div<{ image: any }>`
 const Description = styled.div`
   background: ${({ theme }) => theme.colors.backgrounds.lightbox};
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  min-height: 400px;
   height: 100%;
   padding: ${({ theme }) => theme.spacers.size32};
 `

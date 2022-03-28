@@ -71,6 +71,5 @@ export const NavMenu = styled.aside`
   padding: ${({ theme }) => theme.spacers.size32};
   padding-top: ${({ theme }) => theme.spacers.size48};
   right: 0;
-  min-width: 350px;
   background-color: ${({ theme }) => theme.colors.backgrounds.modalBackground};
 `

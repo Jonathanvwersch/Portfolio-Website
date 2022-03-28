@@ -13,7 +13,6 @@ const About = () => {
   const theme = useContext(ThemeContext)
   const layout = useResponsiveLayout()
   const isVertical = layout === LAYOUT_VERTICAL
-  console.log({ isVertical })
 
   return (
     <section id="About">
@@ -52,6 +51,7 @@ const About = () => {
 
 const Image = styled.img`
   max-width: 300px;
+  width: 100%;
 `
 
 export default About
