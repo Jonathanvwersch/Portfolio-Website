@@ -45,7 +45,7 @@ const Hero: React.FC<HeroProps> = () => {
         . I love building products that make a positive difference to the world.
       </Paragraph>
       <Link openInNewTab href={Resume} fontColor="inherit">
-        <Button size={SIZES.MEDIUM}>Download my Resume</Button>
+        <Button size={SIZES.MEDIUM}>Download my resume</Button>
       </Link>
     </section>
   )

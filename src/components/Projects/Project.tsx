@@ -1,21 +1,27 @@
+import { Flex } from "@rebass/grid"
+import { navigate } from "gatsby"
 import * as React from "react"
-import { useContext, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import styled, { ThemeContext } from "styled-components"
 import { Button, H3, IconWrapper } from ".."
 import { SIZES } from "../../definitions"
-import { CloseIcon } from "../../icons"
-import { navigate } from "gatsby"
+import { CloseIcon, GithubIcon, PlayIcon } from "../../icons"
+import { useOutsideClickListener } from "../../utils"
+import { Link } from "../Link"
 
 type Props = {
   title: string
   bulletPoints: string[]
   skills: string[]
   image: any
+  githubLink?: string
 }
 
-const Project = ({ title, bulletPoints, skills, image }: Props) => {
+const Project = ({ title, bulletPoints, skills, image, githubLink }: Props) => {
   const theme = useContext(ThemeContext)
   const [showDescription, setShowDescription] = useState<boolean>(false)
+  const ref = useRef()
+  useOutsideClickListener(ref, () => setShowDescription(false), showDescription)
 
   return (
     <DescriptionWrapper image={image}>
@@ -48,7 +54,7 @@ const Project = ({ title, bulletPoints, skills, image }: Props) => {
         </IconWrapper>
       )}
       {showDescription && (
-        <Description>
+        <Description ref={ref}>
           <H3 styledAs="h5">Dekked</H3>
           <BulletPointsWrapper>
             {bulletPoints.map(b => (
@@ -60,9 +66,28 @@ const Project = ({ title, bulletPoints, skills, image }: Props) => {
               <li key={s}>{s}</li>
             ))}
           </Skills>
-          {/* <Button handleClick={() => navigate(title.toLowerCase())}>
-            Learn even more
-          </Button> */}
+          <Flex
+            style={{ gap: theme.spacers.size16 }}
+            alignItems="center"
+            mt={theme.spacers.size20}
+          >
+            <Button
+              handleClick={() =>
+                navigate(
+                  "https://www.loom.com/share/b098573dc1164b2d85c9adb0702bcb99",
+                  {}
+                )
+              }
+            >
+              <Flex style={{ gap: theme.spacers.size8 }} alignItems="center">
+                Watch video <PlayIcon />
+              </Flex>
+            </Button>
+
+            <Link href={githubLink} openInNewTab>
+              <GithubIcon size={SIZES.XLARGE} />
+            </Link>
+          </Flex>
         </Description>
       )}
     </DescriptionWrapper>

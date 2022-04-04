@@ -10,3 +10,10 @@ export type IconType = {
   ariaLabel?: string
   className?: string
 }
+
+export type CoordsType = {
+  top?: number
+  right?: number
+  bottom?: number
+  left?: number
+}

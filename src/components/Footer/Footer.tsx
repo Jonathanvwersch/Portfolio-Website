@@ -14,7 +14,7 @@ const Footer = () => {
       <Flex style={{ gap: theme.spacers.size16 }} as="ul" p="0">
         <IconWrapper as="li">
           <Link
-            href="https://github.com/Jonathanvwersch"
+            href="https://www.linkedin.com/in/jonathan-van-wersch"
             target="_blank"
             openInNewTab
           >
@@ -22,10 +22,7 @@ const Footer = () => {
           </Link>
         </IconWrapper>
         <IconWrapper as="li">
-          <Link
-            href="https://www.linkedin.com/in/jonathan-van-wersch"
-            openInNewTab
-          >
+          <Link href="https://github.com/Jonathanvwersch" openInNewTab>
             <GithubIcon />
           </Link>
         </IconWrapper>

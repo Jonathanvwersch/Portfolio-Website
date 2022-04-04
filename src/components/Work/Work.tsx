@@ -6,11 +6,31 @@ import { Paragraph, H2, H3, H4, Link } from "../"
 
 enum Tabs {
   ACRE = "ACRE",
-  TBC = "TBC",
+  IMPROBABLE = "IMPROBABLE",
   UOB = "UOB",
 }
 
-const jobs = {
+type JobType = {
+  [key: string]: {
+    company: string
+    title: string
+    dateRange: string
+    description: string
+    url: string
+    bulletPoints: string[]
+    tech?: string
+  }
+}
+
+const jobs: JobType = {
+  [Tabs.IMPROBABLE]: {
+    company: "Improbable",
+    title: "Software Engineer",
+    dateRange: "May 2022–",
+    description: "Building out the metaverse...",
+    url: "https://www.improbable.io/",
+    bulletPoints: [],
+  },
   [Tabs.ACRE]: {
     company: "Acre",
     title: "Frontend Engineer",
@@ -28,15 +48,6 @@ const jobs = {
     ],
     tech: "React, GraphQL (Apollo), React Testing Library, Cypress, Typescript, Styled Components, React Final Form, React Native",
   },
-  // [Tabs.TBC]: {
-  //   company: "TBC",
-  //   title: "Full Stack Engineer",
-  //   dateRange: "April 2022–",
-  //   description: "Who knows",
-  //   url: "https://www.acresoftware.com",
-  //   bulletPoints: ["React", "React Native", "Styled Components"],
-  //   tech: "React, GraphQL (Apollo), React Testing Library, Cypress, Typescript, Styled Components, React Final Form, React Native",
-  // },
   [Tabs.UOB]: {
     company: "University of Bath",
     title: "Student",
@@ -54,8 +65,15 @@ const jobs = {
 const Work = () => {
   const theme = useContext(ThemeContext)
   const [tab, setTab] = useState<Tabs>(Tabs.ACRE)
-  const { company, title, dateRange, description, bulletPoints, tech, url } =
-    jobs[tab]
+  const {
+    company,
+    title,
+    dateRange,
+    description,
+    bulletPoints = [],
+    tech = "",
+    url,
+  } = jobs[tab]
 
   const Job = (
     <Flex flexDirection="column" style={{ gap: theme.spacers.size8 }}>
@@ -92,12 +110,12 @@ const Work = () => {
           flexDirection="column"
           style={{ borderLeft: `solid 1px ${theme.colors.faintColor}` }}
         >
-          {/* <TabButton
-            isActive={tab === Tabs.TBC}
-            onClick={() => setTab(Tabs.TBC)}
+          <TabButton
+            isActive={tab === Tabs.IMPROBABLE}
+            onClick={() => setTab(Tabs.IMPROBABLE)}
           >
-            TBC
-          </TabButton> */}
+            Improbable
+          </TabButton>
           <TabButton
             isActive={tab === Tabs.ACRE}
             onClick={() => setTab(Tabs.ACRE)}
@@ -151,6 +169,7 @@ const TabButton = styled.button<{ isActive?: boolean }>`
     isActive && `solid 1px ${theme.colors.primary}`};
   color: ${({ theme, isActive }) =>
     isActive ? theme.colors.fontColor : theme.colors.faintColor};
+  text-align: left;
   &:hover {
     color: ${({ theme }) => theme.colors.fontColor};
     background: ${({ theme }) => theme.colors.faintColor};

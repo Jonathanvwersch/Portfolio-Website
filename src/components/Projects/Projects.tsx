@@ -11,6 +11,7 @@ const ProjectData = [
     bulletPoints: [
       "Dekked is an integrated flashcard and note-taking application",
       "Raised £3250 in equity-free funding",
+      "Added email and OAuth for authentication",
       "Designed the web app in Figma and developed the front-end using React and Typescript",
       "Created a design system to store all of the common React components",
       "Built the backend using Node.js, Postgres and Express Hosted the web app using Netlify on the front end, and Render for the API and database",
@@ -27,6 +28,7 @@ const ProjectData = [
       "Gatsby",
     ],
     image: ProjectDekked,
+    githubLink: "https://github.com/Jonathanvwersch",
   },
 ]
 

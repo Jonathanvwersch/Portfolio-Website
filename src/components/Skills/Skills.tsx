@@ -70,7 +70,7 @@ const skills = {
 const Skills = () => {
   const theme = useContext(ThemeContext)
   const isVertical = useResponsiveLayout() === LAYOUT_VERTICAL
-  const [tab, setTab] = useState<Tabs>(Tabs.FRONTEND)
+  const [tab, setTab] = useState<Tabs>(Tabs.PROGRAMMING)
 
   // const icons = {
   //   [Tabs.FRONTEND]: (
