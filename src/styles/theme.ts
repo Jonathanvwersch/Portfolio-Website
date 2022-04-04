@@ -38,6 +38,8 @@ export type ThemeType = {
     size: string
   }
 
+  transition: string
+
   breakpoints: {
     small: number
     medium: number
@@ -218,6 +220,8 @@ export const theme = (darkTheme?: boolean): ThemeType => {
     icons: {
       size: "16px",
     },
+
+    transition: "cubic-bezier(0.77, 0, 0.175, 1)",
 
     breakpoints: {
       small: 480,

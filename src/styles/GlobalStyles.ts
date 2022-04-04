@@ -6,6 +6,10 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     a {
         text-decoration: none;
     }
+    
+    html {
+        scroll-behavior: smooth !important;
+    }
 
     body {
         font-family: ${({ theme }) => theme.typography.fontFamily};
@@ -14,7 +18,6 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
         height:100%;
         width:100%;
         padding: 0px ${({ theme }) => theme.spacers.size20};
-       
         *::-webkit-scrollbar {
             width: 8px;
             height:8px;

@@ -35,12 +35,12 @@ const Hero: React.FC<HeroProps> = () => {
       >
         I am currently working as a software engineer at{" "}
         <Link
-          href="https://www.acresoftware.com"
+          href="https://www.improbable.io/"
           openInNewTab
           fontSize="inherit"
           textDecoration="underline"
         >
-          Acre
+          Improbable
         </Link>
         . I love building products that make a positive difference to the world.
       </Paragraph>

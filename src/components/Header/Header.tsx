@@ -1,12 +1,17 @@
 import * as React from "react"
-import { NavLinks, NavMenu, StyledHeader, StyledNav } from "./Header.styles"
-import { CloseIcon, LogoIcon, MenuIcon } from "../../icons"
+import {
+  HamburgerMenu,
+  NavLinks,
+  NavMenu,
+  StyledHeader,
+  StyledNav,
+} from "./Header.styles"
+import { LogoIcon } from "../../icons"
 import { IconWrapper, Link } from ".."
-import { useOutsideClickListener, useResponsiveLayout } from "../../utils"
+import { useResponsiveLayout } from "../../utils"
 import { LAYOUT_VERTICAL } from "../../utils/hooks/useResponsiveLayout"
-import { ThemeContext } from "styled-components"
-import { useContext, useEffect, useRef, useState } from "react"
-import { SIZES } from "../../definitions"
+import { useEffect, useState } from "react"
+import { navigate } from "gatsby"
 
 const navDetails = [
   { href: "About", title: "About" },
@@ -19,10 +24,7 @@ const navDetails = [
 const Header = () => {
   const layout = useResponsiveLayout()
   const isVertical = layout === LAYOUT_VERTICAL
-  const theme = useContext(ThemeContext)
   const [showMenu, setShowMenu] = useState<boolean>(false)
-  const navMenuRef = useRef()
-  useOutsideClickListener(navMenuRef, () => setShowMenu(false), showMenu)
 
   useEffect(() => {
     !isVertical && setShowMenu(false)
@@ -34,7 +36,7 @@ const Header = () => {
       isVertical={isVertical}
     >
       {navDetails.map(({ href, title }) => (
-        <li key={title} onClick={() => setShowMenu(false)}>
+        <li key={title}>
           <Link href={`/#${href}`}>{title}</Link>
         </li>
       ))}
@@ -44,31 +46,20 @@ const Header = () => {
   return (
     <StyledHeader>
       <StyledNav>
-        <Link href="/">
+        <IconWrapper handleClick={() => navigate("/")}>
           <LogoIcon />
-        </Link>
+        </IconWrapper>
         {isVertical ? (
           <>
-            <IconWrapper
-              handleClick={() => setShowMenu(prevState => !prevState)}
+            <HamburgerMenu
+              onClick={() => setShowMenu(prevState => !prevState)}
+              isActive={showMenu}
             >
-              <MenuIcon size={theme.spacers.size40} />
-            </IconWrapper>
-            {showMenu && (
-              <NavMenu ref={navMenuRef}>
-                <nav>{navLinks}</nav>
-                <IconWrapper
-                  styles={{
-                    position: "absolute",
-                    top: theme.spacers.size16,
-                    right: theme.spacers.size16,
-                  }}
-                  handleClick={() => setShowMenu(false)}
-                >
-                  <CloseIcon size={SIZES.XLARGE} />
-                </IconWrapper>
-              </NavMenu>
-            )}
+              <span />
+            </HamburgerMenu>
+            <NavMenu isActive={showMenu}>
+              <nav>{navLinks}</nav>
+            </NavMenu>
           </>
         ) : (
           navLinks

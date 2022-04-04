@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const StyledHeader = styled.header`
   position: sticky;
@@ -10,6 +10,56 @@ export const StyledHeader = styled.header`
   justify-content: center;
   height: ${({ theme }) => theme.spacers.size96};
   background-color: ${({ theme }) => theme.colors.backgrounds.pageBackground};
+`
+
+const HamburgerMenuActive = css`
+  span {
+    background: transparent;
+  }
+  span::before {
+    transform: rotate(-225deg);
+    top: 0px;
+  }
+
+  span::after {
+    transform: rotate(225deg);
+    top: 0px;
+  }
+`
+
+export const HamburgerMenu = styled.div<{ isActive?: boolean }>`
+  z-index: 2;
+  cursor: pointer;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  width: 24px;
+  height: 28px;
+
+  span,
+  span::before,
+  span::after {
+    position: relative;
+    z-index: 1;
+    content: "";
+    width: ${({ theme }) => theme.spacers.size24};
+    height: 2.5px;
+    background: ${({ theme }) => theme.colors.iconColor};
+    border-radius: 20px;
+    transition: 500ms ${({ theme }) => theme.transition};
+  }
+
+  span::before {
+    top: -${({ theme }) => theme.spacers.size8};
+    position: absolute;
+  }
+
+  span::after {
+    top: ${({ theme }) => theme.spacers.size8};
+    position: absolute;
+  }
+
+  ${({ isActive }) => isActive && HamburgerMenuActive}
 `
 
 export const StyledNav = styled.nav`
@@ -64,12 +114,13 @@ export const NavLinks = styled.ol<{ isVertical?: boolean }>`
   }
 `
 
-export const NavMenu = styled.aside`
+export const NavMenu = styled.aside<{ isActive?: boolean }>`
   position: fixed;
   top: 0;
+  transition: 500ms right ${({ theme }) => theme.transition};
   bottom: 0;
+  right: ${({ isActive }) => (isActive ? "0" : "-100%")};
   padding: ${({ theme }) => theme.spacers.size32};
   padding-top: ${({ theme }) => theme.spacers.size48};
-  right: 0;
   background-color: ${({ theme }) => theme.colors.backgrounds.modalBackground};
 `
