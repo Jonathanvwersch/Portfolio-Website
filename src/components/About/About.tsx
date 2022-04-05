@@ -1,17 +1,21 @@
 import * as React from "react"
-import { useContext } from "react"
+import { useContext, useRef } from "react"
 import styled, { ThemeContext } from "styled-components"
 import { Paragraph } from "../Paragraph"
 // @ts-ignore
 import ProfilePic from "../../images/ProfilePic.png"
 import { H2 } from "../Headers/Headers"
 import { Flex } from "@rebass/grid"
+import { FadeInAndTranslateSection } from "../StyledComponents"
+import { useVisibleOnScreen } from "../../utils"
 
 const About = () => {
   const theme = useContext(ThemeContext)
+  const domRef = useRef()
+  const isVisible = useVisibleOnScreen(domRef, true)
 
   return (
-    <section id="About">
+    <StyledSection id="About" ref={domRef} isVisible={isVisible} as="section">
       <H2 className="numbered-header after-single-line">About</H2>
       <MediaFlex>
         <Paragraph fontSize={theme.typography.fontSizes.size14}>
@@ -35,9 +39,11 @@ const About = () => {
         </Paragraph>
         <Image src={ProfilePic} />
       </MediaFlex>
-    </section>
+    </StyledSection>
   )
 }
+
+const StyledSection = styled(FadeInAndTranslateSection)``
 
 const MediaFlex = styled(Flex)`
   flex-direction: row;

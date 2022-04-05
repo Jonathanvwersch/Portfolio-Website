@@ -1,6 +1,7 @@
 import styled from "styled-components"
+import { FadeInSection } from "../StyledComponents"
 
-export const StyledFooter = styled.footer`
+export const StyledFooter = styled(FadeInSection)`
   display: flex;
   align-items: center;
   justify-content: center;

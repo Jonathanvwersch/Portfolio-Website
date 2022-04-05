@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components"
+import { fadeInAnimation } from "../StyledComponents"
 
-export const StyledHeader = styled.header`
+export const HeaderWrapper = styled.header`
   position: sticky;
   top: 0;
   width: 100%;
@@ -28,6 +29,10 @@ const HamburgerMenuActive = css`
 `
 
 export const HamburgerMenu = styled.div<{ isActive?: boolean }>`
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+
   z-index: 2;
   cursor: pointer;
   background: transparent;
@@ -62,12 +67,57 @@ export const HamburgerMenu = styled.div<{ isActive?: boolean }>`
   ${({ isActive }) => isActive && HamburgerMenuActive}
 `
 
-export const StyledNav = styled.nav`
+export const NavWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 100%;
+
+  ${fadeInAnimation};
+  animation-duration: 1000ms;
+
+  .horizontal-screen {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .vertical-screen {
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  svg {
+    ${fadeInAnimation};
+    animation-duration: 1300ms;
+  }
+
+  li:nth-child(1) {
+    ${fadeInAnimation};
+    animation-duration: 1500ms;
+  }
+
+  li:nth-child(2) {
+    ${fadeInAnimation};
+    animation-duration: 1700ms;
+  }
+
+  li:nth-child(3) {
+    ${fadeInAnimation};
+    animation-duration: 1900ms;
+  }
+
+  li:nth-child(4) {
+    ${fadeInAnimation};
+    animation-duration: 2100ms;
+  }
+
+  li:nth-child(5) {
+    ${fadeInAnimation};
+    animation-duration: 2300ms;
+  }
 `
 
 export const NavLinks = styled.ol<{ isVertical?: boolean }>`
@@ -80,6 +130,7 @@ export const NavLinks = styled.ol<{ isVertical?: boolean }>`
     isVertical ? theme.spacers.size20 : theme.spacers.size12};
   list-style: none;
   position: relative;
+
   a {
     font-size: ${({ theme, isVertical }) =>
       isVertical
@@ -87,20 +138,8 @@ export const NavLinks = styled.ol<{ isVertical?: boolean }>`
         : theme.typography.fontSizes.size12};
   }
 
-  li:nth-child(1) {
-    transition-delay: 0ms;
-  }
-
-  li:nth-child(2) {
-    transition-delay: 100ms;
-  }
-
-  li:nth-child(3) {
-    transition-delay: 200ms;
-  }
-
-  li:nth-child(4) {
-    transition-delay: 300ms;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
   }
 
   li {

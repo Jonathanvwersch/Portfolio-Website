@@ -3,15 +3,15 @@ import {
   HamburgerMenu,
   NavLinks,
   NavMenu,
-  StyledHeader,
-  StyledNav,
+  HeaderWrapper,
+  NavWrapper,
 } from "./Header.styles"
 import { LogoIcon } from "../../icons"
 import { IconWrapper, Link } from ".."
-import { useResponsiveLayout } from "../../utils"
-import { LAYOUT_VERTICAL } from "../../utils/hooks/useResponsiveLayout"
 import { useEffect, useState } from "react"
 import { navigate } from "gatsby"
+import { useResponsiveLayout } from "../../utils"
+import { LAYOUT_VERTICAL } from "../../utils/hooks/useResponsiveLayout"
 
 const navDetails = [
   { href: "About", title: "About" },
@@ -22,19 +22,16 @@ const navDetails = [
 ]
 
 const Header = () => {
+  const [showMenu, setShowMenu] = useState<boolean>(false)
   const layout = useResponsiveLayout()
   const isVertical = layout === LAYOUT_VERTICAL
-  const [showMenu, setShowMenu] = useState<boolean>(false)
 
   useEffect(() => {
     !isVertical && setShowMenu(false)
   }, [setShowMenu, isVertical])
 
   const navLinks = (
-    <NavLinks
-      style={{ flexDirection: isVertical ? "column" : "row" }}
-      isVertical={isVertical}
-    >
+    <NavLinks>
       {navDetails.map(({ href, title }) => (
         <li key={title}>
           <Link href={`/#${href}`}>{title}</Link>
@@ -44,28 +41,28 @@ const Header = () => {
   )
 
   return (
-    <StyledHeader>
-      <StyledNav>
+    <HeaderWrapper>
+      <NavWrapper>
         <IconWrapper handleClick={() => navigate("/")}>
           <LogoIcon />
         </IconWrapper>
-        {isVertical ? (
-          <>
-            <HamburgerMenu
-              onClick={() => setShowMenu(prevState => !prevState)}
-              isActive={showMenu}
-            >
-              <span />
-            </HamburgerMenu>
-            <NavMenu isActive={showMenu}>
-              <nav>{navLinks}</nav>
-            </NavMenu>
-          </>
-        ) : (
-          navLinks
-        )}
-      </StyledNav>
-    </StyledHeader>
+
+        {/* Vertical Screen */}
+        <HamburgerMenu
+          className="vertical-screen"
+          onClick={() => setShowMenu(prevState => !prevState)}
+          isActive={showMenu}
+        >
+          <span />
+        </HamburgerMenu>
+        <NavMenu isActive={showMenu} className="vertical-screen">
+          <nav>{navLinks}</nav>
+        </NavMenu>
+
+        {/* Horizontal Screen */}
+        <nav className="horizontal-screen">{navLinks}</nav>
+      </NavWrapper>
+    </HeaderWrapper>
   )
 }
 

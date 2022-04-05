@@ -1,6 +1,6 @@
 import { Flex } from "@rebass/grid"
 import * as React from "react"
-import { useContext, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import styled, { ThemeContext } from "styled-components"
 import { SIZES } from "../../definitions"
 import {
@@ -17,9 +17,10 @@ import {
   ReactIcon,
   TypescriptIcon,
 } from "../../icons"
-import { useResponsiveLayout } from "../../utils"
+import { useResponsiveLayout, useVisibleOnScreen } from "../../utils"
 import { LAYOUT_VERTICAL } from "../../utils/hooks/useResponsiveLayout"
 import { H2 } from "../Headers/Headers"
+import { FadeInAndTranslateSection } from "../StyledComponents"
 
 enum Tabs {
   FRONTEND = "FRONTEND",
@@ -71,6 +72,8 @@ const Skills = () => {
   const theme = useContext(ThemeContext)
   const isVertical = useResponsiveLayout() === LAYOUT_VERTICAL
   const [tab, setTab] = useState<Tabs>(Tabs.PROGRAMMING)
+  const domRef = useRef()
+  const isVisible = useVisibleOnScreen(domRef, true)
 
   // const icons = {
   //   [Tabs.FRONTEND]: (
@@ -104,7 +107,7 @@ const Skills = () => {
   // }
 
   return (
-    <section id="Skills">
+    <StyledSection id="Skills" ref={domRef} isVisible={isVisible} as="section">
       <H2 className="numbered-header after-single-line">Skills</H2>
       <Flex
         width="100%"
@@ -143,9 +146,11 @@ const Skills = () => {
           <SkillItem key={i}>{t}</SkillItem>
         ))}
       </SkillList>
-    </section>
+    </StyledSection>
   )
 }
+
+const StyledSection = styled(FadeInAndTranslateSection)``
 
 const SkillList = styled.ul<{ isVertical?: boolean }>`
   display: grid;

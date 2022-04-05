@@ -3,14 +3,17 @@ import { StyledFooter } from "./Footer.styles"
 import { Flex } from "@rebass/grid"
 import { GithubIcon, LinkedInIcon, TwitterIcon } from "../../icons"
 import { ThemeContext } from "styled-components"
-import { useContext } from "react"
+import { useContext, useRef } from "react"
 import { IconWrapper, Link, Paragraph } from ".."
+import { useVisibleOnScreen } from "../../utils"
 
 const Footer = () => {
   const theme = useContext(ThemeContext)
+  const domRef = useRef()
+  const isVisible = useVisibleOnScreen(domRef, true)
 
   return (
-    <StyledFooter>
+    <StyledFooter ref={domRef} as="footer" isVisible={isVisible}>
       <Flex style={{ gap: theme.spacers.size16 }} as="ul" p="0">
         <IconWrapper as="li">
           <Link

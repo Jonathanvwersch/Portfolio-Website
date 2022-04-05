@@ -1,8 +1,10 @@
 import { Box, Flex } from "@rebass/grid"
 import * as React from "react"
-import { Fragment, useContext, useState } from "react"
+import { Fragment, useContext, useRef, useState } from "react"
 import styled, { ThemeContext } from "styled-components"
 import { Paragraph, H2, H3, H4, Link } from "../"
+import { useVisibleOnScreen } from "../../utils"
+import { FadeInAndTranslateSection } from "../StyledComponents"
 
 enum Tabs {
   ACRE = "ACRE",
@@ -64,7 +66,10 @@ const jobs: JobType = {
 
 const Work = () => {
   const theme = useContext(ThemeContext)
-  const [tab, setTab] = useState<Tabs>(Tabs.ACRE)
+  const [tab, setTab] = useState<Tabs>(Tabs.IMPROBABLE)
+  const domRef = useRef()
+  const isVisible = useVisibleOnScreen(domRef, true)
+
   const {
     company,
     title,
@@ -103,7 +108,7 @@ const Work = () => {
   )
 
   return (
-    <section id="Work">
+    <StyledSection id="Work" ref={domRef} isVisible={isVisible} as="section">
       <H2 className="numbered-header after-single-line">Work and Education</H2>
       <Flex style={{ gap: theme.spacers.size32, minHeight: "330px" }}>
         <Flex
@@ -131,9 +136,11 @@ const Work = () => {
         </Flex>
         {Job}
       </Flex>
-    </section>
+    </StyledSection>
   )
 }
+
+const StyledSection = styled(FadeInAndTranslateSection)``
 
 const SkillList = styled.ul`
   gap: 0px 10px;

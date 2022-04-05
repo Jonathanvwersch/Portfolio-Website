@@ -1,15 +1,19 @@
 import * as React from "react"
-import { useContext } from "react"
+import { useContext, useRef } from "react"
 import styled, { ThemeContext } from "styled-components"
 import { Button, Link, Paragraph } from ".."
 import { SIZES } from "../../definitions"
+import { useVisibleOnScreen } from "../../utils"
 import { H2, H3 } from "../Headers/Headers"
+import { FadeInAndTranslateSection } from "../StyledComponents"
 
 const About = () => {
   const theme = useContext(ThemeContext)
+  const domRef = useRef()
+  const isVisible = useVisibleOnScreen(domRef, true)
 
   return (
-    <StyledSection id="Contact">
+    <StyledSection isVisible={isVisible} as="section" id="Contact" ref={domRef}>
       <StyledLines>
         <H2 className="numbered-header contact">Reach out</H2>
       </StyledLines>
@@ -58,7 +62,7 @@ const StyledLines = styled.div`
   }
 `
 
-const StyledSection = styled.section`
+const StyledSection = styled(FadeInAndTranslateSection)`
   align-items: center;
   text-align: center;
   max-width: 400px;
