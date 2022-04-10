@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Footer } from ".."
 import { Header } from "../Header"
-import styled, { css, ThemeProvider } from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 
 import { Flex } from "@rebass/grid"
 import { GlobalStyle, theme } from "../../styles"
@@ -13,9 +13,10 @@ type Props = {
   children: ReactNode
   title: string
   hideLinks?: boolean
+  dataAnimation?: string
 }
 
-const Layout = ({ children, title, hideLinks }: Props) => {
+const Layout = ({ children, title, hideLinks, dataAnimation }: Props) => {
   return (
     <>
       <Seo title={title} />
@@ -23,7 +24,7 @@ const Layout = ({ children, title, hideLinks }: Props) => {
         <GlobalStyle />
         <Flex flexDirection="column" style={{ minHeight: "100vh" }}>
           <Header hideLinks={hideLinks} />
-          <Main>{children}</Main>
+          <Main data-animation={dataAnimation}>{children}</Main>
           <Footer />
         </Flex>
       </ThemeProvider>
@@ -38,19 +39,19 @@ const Main = styled.main`
   min-height: 100vh;
   counter-reset: section;
 
-  *:nth-child(1) {
+  &[data-animation="true"]:nth-child(1) {
     ${fadeInAnimation};
     animation-duration: 1000ms;
   }
 
-  *:nth-child(2) {
+  &[data-animation="true"]:nth-child(2) {
     ${fadeInAnimation};
     animation-duration: 1600ms;
   }
 
-  *:nth-child(3) {
+  &[data-animation="true"]:nth-child(3) {
     ${fadeInAnimation};
-    animation-duration: 2100ms;
+    animation-duration: 2200ms;
   }
 
   section {

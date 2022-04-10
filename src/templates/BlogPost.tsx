@@ -11,7 +11,7 @@ export default function BlogPost({ data }) {
   const { date, title, thumbnail } = frontmatter
 
   return (
-    <Layout title={title} hideLinks>
+    <Layout title={title} hideLinks dataAnimation="true">
       <div style={{ position: "sticky", zIndex: 1, top: "32px" }}>
         <Button
           buttonStyle={BUTTON_THEME.CLEAR}
