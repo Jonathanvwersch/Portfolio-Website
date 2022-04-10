@@ -22,11 +22,13 @@ type ParagraphProps = {
   textOverflow?: string
   as?: any
   style?: React.CSSProperties
+  html?: any
 }
 
 const Paragraph: React.FC<ParagraphProps> = ({ children, ...props }) => {
   return (
     <StyledParagraph
+      dangerouslySetInnerHTML={props.html}
       placeholder={props.placeholder}
       spellCheck={false}
       className={props.className}

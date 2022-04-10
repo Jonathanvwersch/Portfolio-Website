@@ -1,10 +1,9 @@
 import React, { useContext } from "react"
 import { graphql, StaticQuery } from "gatsby"
-import { BlogPost } from "../BlogPost"
+import { BlogPostCard } from "../BlogPostCard"
 import { Flex } from "@rebass/grid"
 import { ThemeContext } from "styled-components"
 import { Paragraph } from ".."
-import { FluidObject } from "gatsby-image"
 
 type BlogData = {
   node: {
@@ -13,11 +12,7 @@ type BlogData = {
       path: string
       title: string
       date: string
-      thumbnail: {
-        childImageSharp: {
-          fluid: FluidObject
-        }
-      }
+      thumbnail: string
     }
     excerpt: string
   }
@@ -32,16 +27,16 @@ const BlogRoll = ({ data }: BlogRollProps) => {
   const theme = useContext(ThemeContext)
 
   return (
-    <Flex flexWrap="wrap" style={{ gap: theme.spacers.size16 }}>
+    <Flex flexWrap="wrap" style={{ gap: theme.spacers.size20 }}>
       {posts ? (
         posts?.map(({ node: post }) => (
-          <BlogPost
+          <BlogPostCard
             key={post.id}
             path={post.frontmatter.path}
             title={post.frontmatter.title}
             date={post.frontmatter.date}
             excerpt={post.excerpt}
-            img={post.frontmatter.thumbnail?.childImageSharp.fluid}
+            img={post.frontmatter.thumbnail}
           />
         ))
       ) : (
@@ -63,20 +58,14 @@ const query = () => (
         allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
           edges {
             node {
-              excerpt(pruneLength: 400)
+              excerpt(pruneLength: 300)
               id
               frontmatter {
                 path
                 title
                 tags
                 date(formatString: "MMMM DD, YYYY")
-                thumbnail {
-                  childImageSharp {
-                    fluid(maxWidth: 900) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
+                thumbnail
               }
             }
           }

@@ -1,11 +1,52 @@
-exports.createPages = async ({ actions }) => {
+const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require(`path`)
+
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
+  const result = await graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              path
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    console.log(node)
+    createPage({
+      path: `/blog/${node.frontmatter.path}`,
+      component: path.resolve(`./src/templates/BlogPost.tsx`),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: node.fields.slug,
+      },
+    })
   })
+}
+
+// create new slug for each markdown file
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
+
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
 }
 
 exports.createSchemaCustomization = ({ actions, schema }) => {

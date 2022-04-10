@@ -6,7 +6,7 @@ import { H2 } from "../Headers/Headers"
 import { Flex } from "@rebass/grid"
 import { FadeInAndTranslateSection } from "../StyledComponents"
 import { useVisibleOnScreen } from "../../utils"
-import { BlogPost, Button, Paragraph } from ".."
+import { BlogPostCard, Button, Paragraph } from ".."
 import { graphql, navigate, StaticQuery } from "gatsby"
 import { BlogRollProps } from "../BlogRoll/BlogRoll"
 
@@ -25,16 +25,19 @@ const Blog = ({ data }: BlogRollProps) => {
         ) : (
           <>
             <Flex
+              flexWrap="wrap"
               style={{ gap: theme.spacers.size16 }}
               mb={theme.spacers.size32}
             >
               {posts?.slice(0, 2).map(({ node: post }) => (
-                <BlogPost
+                <BlogPostCard
                   key={post.id}
                   path={post.frontmatter.path}
                   title={post.frontmatter.title}
                   date={post.frontmatter.date}
                   excerpt={post.excerpt}
+                  img={post.frontmatter.thumbnail}
+                  isOnFrontPage
                 />
               ))}
             </Flex>
@@ -60,7 +63,9 @@ const query = () => (
               frontmatter {
                 path
                 title
+                tags
                 date(formatString: "MMMM DD, YYYY")
+                thumbnail
               }
             }
           }
