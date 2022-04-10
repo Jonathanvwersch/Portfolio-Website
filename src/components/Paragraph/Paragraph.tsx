@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-interface ParagraphProps {
+type ParagraphProps = {
   fontSize?: string
   fontWeight?: string
   fontColor?: string

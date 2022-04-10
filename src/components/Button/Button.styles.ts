@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components"
 import { BUTTON_THEME, SIZES } from "../../definitions"
 
-interface ButtonProps {
+type ButtonProps = {
   isLoading: boolean
   size: SIZES
   width?: SIZES | string

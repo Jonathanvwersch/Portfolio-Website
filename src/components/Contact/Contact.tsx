@@ -1,8 +1,7 @@
 import * as React from "react"
 import { useContext, useRef } from "react"
 import styled, { ThemeContext } from "styled-components"
-import { Button, Link, Paragraph } from ".."
-import { SIZES } from "../../definitions"
+import { Button, ExternalLink, Paragraph } from ".."
 import { useVisibleOnScreen } from "../../utils"
 import { H2, H3 } from "../Headers/Headers"
 import { FadeInAndTranslateSection } from "../StyledComponents"
@@ -26,13 +25,13 @@ const About = () => {
         reach out to me. I'm not currently looking for any new job
         opportunities, but my inbox remains open regardless!
       </Paragraph>
-      <Link
+      <ExternalLink
         openInNewTab
         href="mailto:jonathanvwersch@gmail.com"
         fontColor="inherit"
       >
-        <Button size={SIZES.LARGE}>Contact me</Button>
-      </Link>
+        <Button>Contact me</Button>
+      </ExternalLink>
     </StyledSection>
   )
 }

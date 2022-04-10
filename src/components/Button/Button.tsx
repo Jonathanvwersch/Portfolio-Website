@@ -2,7 +2,7 @@ import React, { ReactNode } from "react"
 import { BUTTON_THEME, SIZES } from "../../definitions"
 import { StyledButton } from "./Button.styles"
 
-interface ButtonProps {
+type ButtonProps = {
   children: ReactNode
   type?: "submit" | "button"
   className?: string

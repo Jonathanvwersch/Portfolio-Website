@@ -32,6 +32,7 @@ const ProjectData = [
     ],
     image: ProjectDekked,
     githubLink: "https://github.com/Jonathanvwersch",
+    videoLink: "https://loom.com/share/folder/3395420ad9fd427bb58329f930c5e288",
   },
 ]
 

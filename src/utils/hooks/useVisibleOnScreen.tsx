@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useLayoutEffect, useState } from "react"
 
 const useVisibleOnScreen = (
   ref?: React.MutableRefObject<undefined>,
@@ -6,12 +6,11 @@ const useVisibleOnScreen = (
 ) => {
   const [isVisible, setVisible] = useState<boolean>(false)
 
-  useEffect(() => {
-    if (runOnlyOnce ? isVisible !== true : true) {
+  useLayoutEffect(() => {
+    if ((runOnlyOnce ? isVisible !== true : true) && ref.current) {
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => setVisible(entry.isIntersecting))
       })
-
       observer.observe(ref.current)
       return () => observer.unobserve(ref.current)
     }

@@ -1,10 +1,10 @@
 import * as React from "react"
 import { StyledFooter } from "./Footer.styles"
 import { Flex } from "@rebass/grid"
-import { GithubIcon, LinkedInIcon, TwitterIcon } from "../../icons"
+import { GithubIcon, LinkedInIcon, TwitterIcon, YoutubeIcon } from "../../icons"
 import { ThemeContext } from "styled-components"
 import { useContext, useRef } from "react"
-import { IconWrapper, Link, Paragraph } from ".."
+import { IconWrapper, ExternalLink, Paragraph } from ".."
 import { useVisibleOnScreen } from "../../utils"
 
 const Footer = () => {
@@ -16,37 +16,42 @@ const Footer = () => {
     <StyledFooter ref={domRef} as="footer" isVisible={isVisible}>
       <Flex style={{ gap: theme.spacers.size16 }} as="ul" p="0">
         <IconWrapper as="li">
-          <Link
+          <ExternalLink
             href="https://www.linkedin.com/in/jonathan-van-wersch"
             target="_blank"
             openInNewTab
           >
             <LinkedInIcon />
-          </Link>
+          </ExternalLink>
         </IconWrapper>
         <IconWrapper as="li">
-          <Link href="https://github.com/Jonathanvwersch" openInNewTab>
+          <ExternalLink href="https://github.com/Jonathanvwersch" openInNewTab>
             <GithubIcon />
-          </Link>
+          </ExternalLink>
         </IconWrapper>
         <IconWrapper as="li">
-          <Link
-            href="https://www.linkedin.com/in/jonathan-van-wersch"
+          <ExternalLink href="https://twitter.com/jonathanvwersch" openInNewTab>
+            <TwitterIcon />
+          </ExternalLink>
+        </IconWrapper>
+        <IconWrapper as="li">
+          <ExternalLink
+            href="https://www.youtube.com/channel/UCksfLzZQrOTSVkr2auvac_w"
             openInNewTab
           >
-            <TwitterIcon />
-          </Link>
+            <YoutubeIcon />
+          </ExternalLink>
         </IconWrapper>
       </Flex>
       <Paragraph>
         Built by Jonathan van Wersch. Design is heavily inspired by{" "}
-        <Link
+        <ExternalLink
           href="https://brittanychiang.com/"
           openInNewTab
           textDecoration="underline"
         >
           Brittany Chiang's porfolio
-        </Link>
+        </ExternalLink>
         .
       </Paragraph>
     </StyledFooter>

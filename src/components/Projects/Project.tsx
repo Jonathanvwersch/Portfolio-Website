@@ -3,11 +3,10 @@ import { navigate } from "gatsby"
 import * as React from "react"
 import { useContext, useRef, useState } from "react"
 import styled, { ThemeContext } from "styled-components"
-import { Button, H3, IconWrapper } from ".."
+import { Button, ExternalLink, H3, IconWrapper } from ".."
 import { SIZES } from "../../definitions"
 import { CloseIcon, GithubIcon, PlayIcon } from "../../icons"
 import { useOutsideClickListener } from "../../utils"
-import { Link } from "../Link"
 
 type Props = {
   title: string
@@ -15,9 +14,17 @@ type Props = {
   skills: string[]
   image: any
   githubLink?: string
+  videoLink?: string
 }
 
-const Project = ({ title, bulletPoints, skills, image, githubLink }: Props) => {
+const Project = ({
+  title,
+  bulletPoints,
+  skills,
+  image,
+  githubLink,
+  videoLink,
+}: Props) => {
   const theme = useContext(ThemeContext)
   const [showDescription, setShowDescription] = useState<boolean>(false)
   const ref = useRef()
@@ -66,28 +73,29 @@ const Project = ({ title, bulletPoints, skills, image, githubLink }: Props) => {
               <li key={s}>{s}</li>
             ))}
           </Skills>
-          <Flex
-            style={{ gap: theme.spacers.size16 }}
-            alignItems="center"
-            mt={theme.spacers.size20}
-          >
-            <Button
-              handleClick={() =>
-                navigate(
-                  "https://www.loom.com/share/b098573dc1164b2d85c9adb0702bcb99",
-                  {}
-                )
-              }
+          {githubLink || videoLink ? (
+            <Flex
+              style={{ gap: theme.spacers.size16 }}
+              alignItems="center"
+              mt={theme.spacers.size20}
             >
-              <Flex style={{ gap: theme.spacers.size8 }} alignItems="center">
-                Watch video <PlayIcon />
-              </Flex>
-            </Button>
-
-            <Link href={githubLink} openInNewTab>
-              <GithubIcon size={SIZES.XLARGE} />
-            </Link>
-          </Flex>
+              {videoLink && (
+                <Button handleClick={() => navigate(videoLink)}>
+                  <Flex
+                    style={{ gap: theme.spacers.size8 }}
+                    alignItems="center"
+                  >
+                    Watch video <PlayIcon />
+                  </Flex>
+                </Button>
+              )}
+              {githubLink && (
+                <ExternalLink href={githubLink} openInNewTab>
+                  <GithubIcon size={SIZES.XLARGE} />
+                </ExternalLink>
+              )}
+            </Flex>
+          ) : null}
         </Description>
       )}
     </DescriptionWrapper>

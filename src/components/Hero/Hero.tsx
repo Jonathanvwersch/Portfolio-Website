@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import styled, { ThemeContext } from "styled-components"
-import { Button, Link } from ".."
+import { Button, ExternalLink } from ".."
 import { SIZES } from "../../definitions"
 import { H1, H2, H3 } from "../Headers/Headers"
 import { Paragraph } from "../Paragraph"
@@ -35,19 +35,24 @@ const Hero: React.FC<HeroProps> = () => {
         fontSize={theme.typography.fontSizes.size14}
       >
         I am currently working as a software engineer at{" "}
-        <Link
+        <ExternalLink
           href="https://www.improbable.io/"
           openInNewTab
           fontSize="inherit"
           textDecoration="underline"
         >
           Improbable
-        </Link>
+        </ExternalLink>
         . I love building products that make a positive difference to the world.
       </Paragraph>
-      <Link openInNewTab href={Resume} fontColor="inherit" className="resume">
+      <ExternalLink
+        openInNewTab
+        href={Resume}
+        fontColor="inherit"
+        className="resume"
+      >
         <Button size={SIZES.MEDIUM}>Download my resume</Button>
-      </Link>
+      </ExternalLink>
     </StyledHero>
   )
 }

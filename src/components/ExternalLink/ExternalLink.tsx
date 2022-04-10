@@ -4,7 +4,7 @@ import React, {
 } from "react"
 import styled from "styled-components"
 
-interface LinkProps {
+type LinkProps = {
   href: string
   fontSize?: string
   fontWeight?: string
@@ -21,13 +21,14 @@ interface LinkProps {
   target?: HTMLAttributeAnchorTarget
   openInNewTab?: boolean
   rel?: string
+  ref?: React.RefObject<any>
   referrerPolicy?: HTMLAttributeReferrerPolicy
   type?: string
   ping?: string
   style?: React.CSSProperties
 }
 
-const Link: React.FC<LinkProps> = ({ children, ...props }) => {
+const ExternalLink: React.FC<LinkProps> = ({ children, ...props }) => {
   return (
     <StyledLink
       {...props}
@@ -71,4 +72,4 @@ const StyledLink = styled.a<LinkProps>`
   }
 `
 
-export default Link
+export default ExternalLink

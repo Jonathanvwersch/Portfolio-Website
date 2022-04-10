@@ -1,16 +1,31 @@
 import * as React from "react"
 import { Footer } from ".."
 import { Header } from "../Header"
-import { Flex } from "@rebass/grid"
-import styled from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 
-const Layout = ({ children }) => {
+import { Flex } from "@rebass/grid"
+import { GlobalStyle, theme } from "../../styles"
+import { ReactNode } from "react"
+import Seo from "../seo"
+
+type Props = {
+  children: ReactNode
+  title: string
+}
+
+const Layout = ({ children, title }: Props) => {
   return (
-    <Flex flexDirection="column" style={{ minHeight: "100vh" }}>
-      <Header />
-      <Main>{children}</Main>
-      <Footer />
-    </Flex>
+    <>
+      <Seo title={title} />
+      <ThemeProvider theme={theme(true)}>
+        <GlobalStyle />
+        <Flex flexDirection="column" style={{ minHeight: "100vh" }}>
+          <Header />
+          <Main>{children}</Main>
+          <Footer />
+        </Flex>
+      </ThemeProvider>
+    </>
   )
 }
 

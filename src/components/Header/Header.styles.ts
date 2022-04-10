@@ -11,6 +11,7 @@ export const HeaderWrapper = styled.header`
   justify-content: center;
   height: ${({ theme }) => theme.spacers.size96};
   background-color: ${({ theme }) => theme.colors.backgrounds.pageBackground};
+  margin-bottom: ${({ theme }) => theme.spacers.size48};
 `
 
 const HamburgerMenuActive = css`
@@ -117,6 +118,11 @@ export const NavWrapper = styled.div`
   li:nth-child(5) {
     ${fadeInAnimation};
     animation-duration: 2300ms;
+  }
+
+  li:nth-child(6) {
+    ${fadeInAnimation};
+    animation-duration: 2500ms;
   }
 `
 

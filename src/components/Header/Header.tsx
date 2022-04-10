@@ -7,7 +7,7 @@ import {
   NavWrapper,
 } from "./Header.styles"
 import { LogoIcon } from "../../icons"
-import { IconWrapper, Link } from ".."
+import { IconWrapper, ExternalLink } from ".."
 import { useEffect, useState } from "react"
 import { navigate } from "gatsby"
 import { useResponsiveLayout } from "../../utils"
@@ -18,6 +18,7 @@ const navDetails = [
   { href: "Skills", title: "Skills" },
   { href: "Work", title: "Work and Education" },
   { href: "Projects", title: "Projects" },
+  { href: "Blog", title: "Blog" },
   { href: "Contact", title: "Contact" },
 ]
 
@@ -34,7 +35,7 @@ const Header = () => {
     <NavLinks>
       {navDetails.map(({ href, title }) => (
         <li key={title}>
-          <Link href={`/#${href}`}>{title}</Link>
+          <ExternalLink href={`/#${href}`}>{title}</ExternalLink>
         </li>
       ))}
     </NavLinks>

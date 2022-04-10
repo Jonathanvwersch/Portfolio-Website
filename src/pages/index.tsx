@@ -1,26 +1,22 @@
 import * as React from "react"
 
 import { Layout, Hero, Contact, About } from "../components"
-import Seo from "../components/seo"
-import { ThemeProvider } from "styled-components"
-import { theme, GlobalStyle } from "../styles"
+
 import Skills from "../components/Skills/Skills"
 import { Work } from "../components/Work"
 import { Projects } from "../components/Projects"
+import Blog from "../components/Blog/Blog"
 
 const IndexPage = () => (
-  <ThemeProvider theme={theme(true)}>
-    <GlobalStyle />
-    <Layout>
-      <Seo title="Home" />
-      <Hero />
-      <About />
-      <Skills />
-      <Work />
-      <Projects />
-      <Contact />
-    </Layout>
-  </ThemeProvider>
+  <Layout title="Home">
+    <Hero />
+    <About />
+    <Skills />
+    <Work />
+    <Projects />
+    <Blog />
+    <Contact />
+  </Layout>
 )
 
 export default IndexPage

@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-interface IconWrapperProps {
+type IconWrapperProps = {
   handleClick?: () => void
   styles?: React.CSSProperties
   as?: any

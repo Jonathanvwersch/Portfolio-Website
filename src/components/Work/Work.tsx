@@ -2,7 +2,7 @@ import { Box, Flex } from "@rebass/grid"
 import * as React from "react"
 import { Fragment, useContext, useRef, useState } from "react"
 import styled, { ThemeContext } from "styled-components"
-import { Paragraph, H2, H3, H4, Link } from "../"
+import { Paragraph, H2, H3, H4, ExternalLink } from "../"
 import { useVisibleOnScreen } from "../../utils"
 import { FadeInAndTranslateSection } from "../StyledComponents"
 
@@ -82,11 +82,11 @@ const Work = () => {
 
   const Job = (
     <Flex flexDirection="column" style={{ gap: theme.spacers.size8 }}>
-      <Link textDecoration="underline" href={url} openInNewTab>
+      <ExternalLink textDecoration="underline" href={url} openInNewTab>
         <H3 styledAs="h5" fontColor={theme.colors.primary}>
           {company}
         </H3>
-      </Link>
+      </ExternalLink>
       <H4 styledAs="h6">{title}</H4>
       <Paragraph fontFamily={theme.typography.fontFamilyMono}>
         {dateRange}
