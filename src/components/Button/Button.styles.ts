@@ -71,14 +71,13 @@ export const StyledButton = styled.button<ButtonProps>`
   }
 
   ${({ buttonStyle }) => {
-    switch (buttonStyle) {
-      case BUTTON_THEME.SECONDARY:
-        return ButtonSecondary
-      case BUTTON_THEME.DANGER:
-        return ButtonDanger
-      default:
-        return ButtonPrimary
+    const buttons = {
+      [BUTTON_THEME.SECONDARY]: ButtonSecondary,
+      [BUTTON_THEME.DANGER]: ButtonDanger,
+      [BUTTON_THEME.PRIMARY]: ButtonPrimary,
+      [BUTTON_THEME.CLEAR]: ButtonClear,
     }
+    return buttons?.[buttonStyle] || ButtonPrimary
   }}
 `
 
@@ -99,4 +98,12 @@ export const ButtonSecondary = css`
 export const ButtonDanger = css`
   background-color: ${({ theme }) => theme.colors.danger};
   color: white;
+`
+
+export const ButtonClear = css`
+  background-color: transparent;
+  border: none;
+  color: ${({ theme }) => theme.colors.primary};
+  padding: 0px;
+  line-height: 1.4;
 `

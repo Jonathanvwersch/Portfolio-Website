@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
-import { ThemeType } from "../theme/theme"
 import { ThemeContext } from "styled-components"
 import { Svg } from "."
-import { IconType } from "../typesAndEnums"
+import { ThemeType } from "../styles"
+import { IconType } from "../definitions"
 
 const ChevronIcon: React.FC<IconType> = ({ color, size, rotate }) => {
   const theme: ThemeType = useContext(ThemeContext)

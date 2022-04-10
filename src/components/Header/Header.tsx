@@ -22,7 +22,11 @@ const navDetails = [
   { href: "Contact", title: "Contact" },
 ]
 
-const Header = () => {
+type Props = {
+  hideLinks?: boolean
+}
+
+const Header = ({ hideLinks }: Props) => {
   const [showMenu, setShowMenu] = useState<boolean>(false)
   const layout = useResponsiveLayout()
   const isVertical = layout === LAYOUT_VERTICAL
@@ -48,20 +52,24 @@ const Header = () => {
           <LogoIcon />
         </IconWrapper>
 
-        {/* Vertical Screen */}
-        <HamburgerMenu
-          className="vertical-screen"
-          onClick={() => setShowMenu(prevState => !prevState)}
-          isActive={showMenu}
-        >
-          <span />
-        </HamburgerMenu>
-        <NavMenu isActive={showMenu} className="vertical-screen">
-          <nav>{navLinks}</nav>
-        </NavMenu>
+        {!hideLinks ? (
+          <>
+            {/* Vertical Screen */}
+            <HamburgerMenu
+              className="vertical-screen"
+              onClick={() => setShowMenu(prevState => !prevState)}
+              isActive={showMenu}
+            >
+              <span />
+            </HamburgerMenu>
+            <NavMenu isActive={showMenu} className="vertical-screen">
+              <nav>{navLinks}</nav>
+            </NavMenu>
 
-        {/* Horizontal Screen */}
-        <nav className="horizontal-screen">{navLinks}</nav>
+            {/* Horizontal Screen */}
+            <nav className="horizontal-screen">{navLinks}</nav>
+          </>
+        ) : null}
       </NavWrapper>
     </HeaderWrapper>
   )

@@ -16,9 +16,9 @@ export default function Post({ date, title, thumbnail, html }: Props) {
   const theme = useContext(ThemeContext)
 
   return (
-    <Box mt={theme.spacers.size48}>
+    <Box mt={theme.spacers.size8}>
       <Box mb={theme.spacers.size16}>
-        <H1>{title}</H1>
+        <H1 styledAs="h2">{title}</H1>
       </Box>
       <Box mb={theme.spacers.size32}>
         <Paragraph>{new Date(date).toDateString()}</Paragraph>

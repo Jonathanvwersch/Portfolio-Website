@@ -1,26 +1,28 @@
 import * as React from "react"
 import { Footer } from ".."
 import { Header } from "../Header"
-import styled, { ThemeProvider } from "styled-components"
+import styled, { css, ThemeProvider } from "styled-components"
 
 import { Flex } from "@rebass/grid"
 import { GlobalStyle, theme } from "../../styles"
 import { ReactNode } from "react"
 import Seo from "../seo"
+import { fadeInAnimation } from "../StyledComponents"
 
 type Props = {
   children: ReactNode
   title: string
+  hideLinks?: boolean
 }
 
-const Layout = ({ children, title }: Props) => {
+const Layout = ({ children, title, hideLinks }: Props) => {
   return (
     <>
       <Seo title={title} />
       <ThemeProvider theme={theme(true)}>
         <GlobalStyle />
         <Flex flexDirection="column" style={{ minHeight: "100vh" }}>
-          <Header />
+          <Header hideLinks={hideLinks} />
           <Main>{children}</Main>
           <Footer />
         </Flex>
@@ -35,6 +37,21 @@ const Main = styled.main`
   max-width: 800px;
   min-height: 100vh;
   counter-reset: section;
+
+  *:nth-child(1) {
+    ${fadeInAnimation};
+    animation-duration: 1000ms;
+  }
+
+  *:nth-child(2) {
+    ${fadeInAnimation};
+    animation-duration: 1600ms;
+  }
+
+  *:nth-child(3) {
+    ${fadeInAnimation};
+    animation-duration: 2100ms;
+  }
 
   section {
     display: flex;

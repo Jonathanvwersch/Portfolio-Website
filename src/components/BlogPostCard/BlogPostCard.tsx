@@ -30,30 +30,31 @@ const BlogPostCard = ({
   const isVisible = useVisibleOnScreen(domRef, true)
 
   return (
-    <Post
-      as="article"
-      onClick={() => navigate(`/blog/${path}`)}
+    <FadeInAndTranslateSection
       isVisible={isVisible}
       ref={domRef}
+      style={{ flexGrow: "1", flexBasis: "0" }}
     >
-      <Thumbnail src={img} alt={title} isOnFrontPage={isOnFrontPage} />
-      <Box p={theme.spacers.size20}>
-        <header>
-          <Box mb={theme.spacers.size8}>
-            <H2 styledAs="h4">{title}</H2>
-          </Box>
-          <Paragraph margin={`0px 0px ${theme.spacers.size16} 0px`}>
-            {date}
+      <Post onClick={() => navigate(`/blog/${path}`)}>
+        <Thumbnail src={img} alt={title} isOnFrontPage={isOnFrontPage} />
+        <Box p={theme.spacers.size20}>
+          <header>
+            <Box mb={theme.spacers.size8}>
+              <H2 styledAs="h4">{title}</H2>
+            </Box>
+            <Paragraph margin={`0px 0px ${theme.spacers.size16} 0px`}>
+              {date}
+            </Paragraph>
+          </header>
+          <Paragraph
+            fontColor={theme.colors.greyText}
+            fontSize={theme.typography.fontSizes.size14}
+          >
+            {excerpt}
           </Paragraph>
-        </header>
-        <Paragraph
-          fontColor={theme.colors.greyText}
-          fontSize={theme.typography.fontSizes.size14}
-        >
-          {excerpt}
-        </Paragraph>
-      </Box>
-    </Post>
+        </Box>
+      </Post>
+    </FadeInAndTranslateSection>
   )
 }
 
@@ -64,11 +65,10 @@ const Thumbnail = styled.img<{ isOnFrontPage?: boolean }>`
   object-position: center center;
 `
 
-const Post = styled(FadeInAndTranslateSection)`
-  flex-grow: 1;
+const Post = styled.article`
   min-width: 300px;
-  flex-basis: 0;
   min-height: 150px;
+  height: 100%;
   box-shadow: ${({ theme }) => theme.colors.backgrounds.lightbox};
   overflow: hidden;
   border-radius: ${({ theme }) => theme.sizes.borderRadius[SIZES.LARGE]};

@@ -11,7 +11,7 @@ export const HeaderWrapper = styled.header`
   justify-content: center;
   height: ${({ theme }) => theme.spacers.size96};
   background-color: ${({ theme }) => theme.colors.backgrounds.pageBackground};
-  margin-bottom: ${({ theme }) => theme.spacers.size48};
+  margin-bottom: ${({ theme }) => theme.spacers.size16};
 `
 
 const HamburgerMenuActive = css`

@@ -16,6 +16,7 @@ export enum BUTTON_THEME {
   PRIMARY = "primary",
   SECONDARY = "secondary",
   DANGER = "danger",
+  CLEAR = "clear",
 }
 
 export enum MODAL_TYPE {
