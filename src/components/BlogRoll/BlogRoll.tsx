@@ -4,6 +4,7 @@ import { BlogPost } from "../BlogPost"
 import { Flex } from "@rebass/grid"
 import { ThemeContext } from "styled-components"
 import { Paragraph } from ".."
+import { FluidObject } from "gatsby-image"
 
 type BlogData = {
   node: {
@@ -12,6 +13,11 @@ type BlogData = {
       path: string
       title: string
       date: string
+      thumbnail: {
+        childImageSharp: {
+          fluid: FluidObject
+        }
+      }
     }
     excerpt: string
   }
@@ -35,6 +41,7 @@ const BlogRoll = ({ data }: BlogRollProps) => {
             title={post.frontmatter.title}
             date={post.frontmatter.date}
             excerpt={post.excerpt}
+            img={post.frontmatter.thumbnail?.childImageSharp.fluid}
           />
         ))
       ) : (
@@ -63,6 +70,13 @@ const query = () => (
                 title
                 tags
                 date(formatString: "MMMM DD, YYYY")
+                thumbnail {
+                  childImageSharp {
+                    fluid(maxWidth: 900) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
               }
             }
           }

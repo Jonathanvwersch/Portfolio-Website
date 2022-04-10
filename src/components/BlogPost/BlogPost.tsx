@@ -6,15 +6,17 @@ import { H2, Paragraph } from ".."
 import { SIZES } from "../../definitions"
 import { useVisibleOnScreen } from "../../utils"
 import { FadeInAndTranslateSection } from "../StyledComponents"
+import Img, { FluidObject } from "gatsby-image"
 
 type Props = {
   path: string
   title: string
   date: string
   excerpt: string
+  img: FluidObject | FluidObject[]
 }
 
-const BlogPost = ({ path, title, date, excerpt }: Props) => {
+const BlogPost = ({ path, title, date, excerpt, img }: Props) => {
   const theme = useContext(ThemeContext)
   const domRef = useRef()
   const isVisible = useVisibleOnScreen(domRef, true)
@@ -35,6 +37,7 @@ const BlogPost = ({ path, title, date, excerpt }: Props) => {
             {excerpt}
           </Paragraph>
         </Box>
+        <Img fluid={img} alt={title} />
       </Post>
     </PostLink>
   )

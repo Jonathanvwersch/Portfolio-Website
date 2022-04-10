@@ -17,6 +17,7 @@ collections:
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
+      - { label: Thumbnail, name: thumbnail, widget: image, required: false }
       - { name: slug, label: Slug, required: true, widget: string }
       - {
           name: tags,

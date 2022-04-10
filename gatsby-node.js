@@ -19,10 +19,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
           type: "[String!]",
           resolve(source) {
             const { tags } = source
-            if (source.tags == null || (Array.isArray(tags) && !tags.length)) {
-              return []
-            }
-            return tags
+            return tags || []
           },
         },
       },
