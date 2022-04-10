@@ -2,6 +2,7 @@
 path: lorem-ipsum
 date: 2022-04-09T15:23:41.437Z
 title: Lorem Ipsum
+thumbnail: /img/screenshot-2022-04-09-at-10.15.14.png
 slug: lorem-ipsum
 ---
 **Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed consectetur purus, eu accumsan elit. Fusce auctor, diam ut hendrerit sollicitudin, massa est mattis felis, a volutpat tellus ipsum eget quam. Integer finibus convallis tellus, sit amet semper purus aliquam sit amet. Suspendisse ac posuere metus. Cras eleifend orci ac commodo faucibus. Proin varius ut velit ut dapibus. Vestibulum eu mauris cursus, luctus nulla sit amet, egestas nulla. Donec tempus lectus lacus, a varius dolor maximus non. Maecenas elementum, lorem nec feugiat ultrices, sapien augue consequat odio, in porttitor risus nisi nec dolor. Pellentesque ultrices erat sit amet ex vulputate finibus. Suspendisse porttitor, ex eu varius tincidunt, turpis nisl aliquam lectus, id tristique diam massa vitae erat. Etiam auctor eros sit amet viverra cursus. Phasellus sit amet est condimentum tortor pellentesque feugiat malesuada vel lorem.**
