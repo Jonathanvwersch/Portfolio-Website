@@ -1,16 +1,21 @@
 import { Flex } from "@rebass/grid"
 import * as React from "react"
-import styled from "styled-components"
+import { ReactNode, useContext } from "react"
+import styled, { ThemeContext } from "styled-components"
+import { MoonIcon, SunIcon } from "../../icons"
 
 type Props = {
   isChecked: boolean
   handleToggle: () => void
   id?: string
   width?: string
+  isCheckedIcon?: ReactNode
+  isNotCheckedIcon?: ReactNode
 }
 
 const Switch = ({ id, width, isChecked, handleToggle }: Props) => {
   const componentId = `${id || ""}Switch`
+  const theme = useContext(ThemeContext)
   return (
     <Flex>
       <Input
@@ -21,10 +26,28 @@ const Switch = ({ id, width, isChecked, handleToggle }: Props) => {
       />
       <Label htmlFor={componentId} width={width}>
         <SwitchButton width={width} />
+        <IconWrapper isChecked={isChecked}>
+          {isChecked && (
+            <SunIcon color={theme.colors.backgrounds.pageBackground} />
+          )}
+          {!isChecked && (
+            <MoonIcon color={theme.colors.backgrounds.pageBackground} />
+          )}
+        </IconWrapper>
       </Label>
     </Flex>
   )
 }
+
+const IconWrapper = styled.div<{ isChecked?: boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: ${({ isChecked }) =>
+    isChecked ? "flex-start" : "flex-end"};
+  width: 100%;
+  margin-left: ${({ isChecked }) => (isChecked ? "2px" : undefined)};
+  margin-right: ${({ isChecked }) => (!isChecked ? "2px" : undefined)};
+`
 
 const Input = styled.input`
   height: 0;

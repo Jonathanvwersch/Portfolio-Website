@@ -6,7 +6,6 @@ import styled, { ThemeContext } from "styled-components"
 import { Button, ExternalLink, H3, IconWrapper } from ".."
 import { SIZES } from "../../definitions"
 import { CloseIcon, GithubIcon, PlayIcon } from "../../icons"
-import { useOutsideClickListener } from "../../utils"
 
 type Props = {
   title: string
@@ -27,8 +26,6 @@ const Project = ({
 }: Props) => {
   const theme = useContext(ThemeContext)
   const [showDescription, setShowDescription] = useState<boolean>(false)
-  const ref = useRef()
-  useOutsideClickListener(ref, () => setShowDescription(false), showDescription)
 
   return (
     <DescriptionWrapper image={image}>
@@ -59,8 +56,8 @@ const Project = ({
             <CloseIcon size={SIZES.LARGE} />
           </IconWrapper>
 
-          <Description ref={ref}>
-            <H3 styledAs="h5">Dekked</H3>
+          <Description>
+            <H3 styledAs="h5">{title}</H3>
             <BulletPointsWrapper>
               {bulletPoints.map(b => (
                 <li key={b}>{b}</li>
