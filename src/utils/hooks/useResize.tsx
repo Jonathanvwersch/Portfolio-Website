@@ -12,7 +12,6 @@ const useResize = ({ myRef }: Props) => {
     setWidth(myRef.current.clientWidth)
     setHeight(myRef.current.clientHeight)
   }
-  console.log(myRef)
 
   useEffect(() => {
     myRef.current && myRef.current.addEventListener("resize", handleResize)

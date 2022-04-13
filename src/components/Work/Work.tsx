@@ -173,14 +173,14 @@ const TabButton = styled.button<{ isActive?: boolean }>`
   border: none;
   padding: ${({ theme }) => theme.spacers.size8};
   border-left: ${({ theme, isActive }) =>
-    isActive && `solid 1px ${theme.colors.primary}`};
+    isActive && `solid 2px ${theme.colors.primary}`};
   color: ${({ theme, isActive }) =>
-    isActive ? theme.colors.fontColor : theme.colors.faintColor};
+    isActive ? theme.colors.primary : theme.colors.faintColor};
   text-align: left;
   &:hover {
     color: ${({ theme }) => theme.colors.fontColor};
     background: ${({ theme }) => theme.colors.faintColor};
-    border-left: ${({ theme }) => `solid 1px ${theme.colors.primary}`};
+    border-left: ${({ theme }) => `solid 2px ${theme.colors.primary}`};
   }
 `
 

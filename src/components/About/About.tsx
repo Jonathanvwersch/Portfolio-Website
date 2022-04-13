@@ -4,15 +4,18 @@ import styled, { ThemeContext } from "styled-components"
 import { Paragraph } from "../Paragraph"
 // @ts-ignore
 import ProfilePic from "../../images/ProfilePic.png"
+import ProfilePicLight from "../../images/ProfilePicLight.png"
 import { H2 } from "../Headers/Headers"
 import { Flex } from "@rebass/grid"
 import { FadeInAndTranslateSection } from "../StyledComponents"
 import { useVisibleOnScreen } from "../../utils"
+import { useDarkThemeContext } from "../../contexts/DarkThemeContext"
 
 const About = () => {
   const theme = useContext(ThemeContext)
   const domRef = useRef()
   const isVisible = useVisibleOnScreen(domRef, true)
+  const { isDarkMode } = useDarkThemeContext()
 
   return (
     <StyledSection id="About" ref={domRef} isVisible={isVisible} as="section">
@@ -37,7 +40,7 @@ const About = () => {
           runner and sports player. I also love to read, and work on
           engineering-related side projects.
         </Paragraph>
-        <Image src={ProfilePic} />
+        <Image src={isDarkMode ? ProfilePic : ProfilePicLight} />
       </MediaFlex>
     </StyledSection>
   )

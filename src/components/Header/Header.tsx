@@ -12,6 +12,8 @@ import { useEffect, useState } from "react"
 import { navigate } from "gatsby"
 import { useResponsiveLayout } from "../../utils"
 import { LAYOUT_VERTICAL } from "../../utils/hooks/useResponsiveLayout"
+import { Switch } from "../Switch"
+import { useDarkThemeContext } from "../../contexts/DarkThemeContext"
 
 const navDetails = [
   { href: "About", title: "About" },
@@ -30,6 +32,7 @@ const Header = ({ hideLinks }: Props) => {
   const [showMenu, setShowMenu] = useState<boolean>(false)
   const layout = useResponsiveLayout()
   const isVertical = layout === LAYOUT_VERTICAL
+  const { isDarkMode, toggleDarkMode } = useDarkThemeContext()
 
   useEffect(() => {
     !isVertical && setShowMenu(false)
@@ -42,6 +45,9 @@ const Header = ({ hideLinks }: Props) => {
           <ExternalLink href={`/#${href}`}>{title}</ExternalLink>
         </li>
       ))}
+      <li>
+        <Switch handleToggle={toggleDarkMode} isChecked={isDarkMode} />
+      </li>
     </NavLinks>
   )
 
@@ -51,7 +57,6 @@ const Header = ({ hideLinks }: Props) => {
         <IconWrapper handleClick={() => navigate("/")}>
           <LogoIcon />
         </IconWrapper>
-
         {!hideLinks ? (
           <>
             {/* Vertical Screen */}
@@ -70,6 +75,9 @@ const Header = ({ hideLinks }: Props) => {
             <nav className="horizontal-screen">{navLinks}</nav>
           </>
         ) : null}
+        {hideLinks && (
+          <Switch handleToggle={toggleDarkMode} isChecked={isDarkMode} />
+        )}
       </NavWrapper>
     </HeaderWrapper>
   )

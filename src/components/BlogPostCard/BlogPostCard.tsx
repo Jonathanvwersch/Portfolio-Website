@@ -47,8 +47,8 @@ const BlogPostCard = ({
             </Paragraph>
           </header>
           <Paragraph
-            fontColor={theme.colors.greyText}
             fontSize={theme.typography.fontSizes.size14}
+            fontFamily={theme.typography.fontFamilyMono}
           >
             {excerpt}
           </Paragraph>

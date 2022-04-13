@@ -5,16 +5,12 @@ export type ThemeColors = {
   success: string
   iconColor: string
   fontColor: string
-  outline: string
   faintColor: string
-  highlightFont: string
   iconHover: string
-  oppositeFontColor: string
   grey1: string
   grey2: string
   grey3: string
   greyText: string
-  loadingBlocks: string
   disabled: string
   selection: string
   backgrounds: {
@@ -147,27 +143,23 @@ export type ThemeType = {
 }
 
 const lightThemeColors: ThemeColors = {
-  primary: "#00B6CE",
-  secondary: "#F5F5F4",
+  primary: "#0b7eda",
+  secondary: "#ab47bc",
   danger: "#DB524B",
   success: "#0CCA4A",
-  iconColor: "#2C2C31",
-  outline: "#64FFDA",
+  iconColor: "#0288d1",
   fontColor: "#2C2C31",
-  faintColor: "#233554",
-  highlightFont: "#ccd6f6",
+  faintColor: "#90caf9",
   iconHover: "rgba(60, 45, 40, 0.1)",
-  oppositeFontColor: "#FFFFFFE6",
   grey1: "#A9A9A9", // dark
   grey2: "#D3D3D3", // mid
   grey3: "#EAEAEA", // light
   greyText: "#b3b3b3",
-  loadingBlocks: "#EAEAEA",
   disabled: "#D3D3D3",
   selection: "#B1FAFF",
   backgrounds: {
-    modalBackground: "FFF",
-    pageBackground: "#FFF",
+    modalBackground: "#f3e5f5",
+    pageBackground: "#e3f2fd",
     lightbox: "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))",
   },
   hover: {
@@ -184,17 +176,13 @@ const darkThemeColors: ThemeColors = {
   danger: "#DB524B",
   success: "#0CCA4A",
   iconColor: "#03DA86",
-  outline: "#64FFDA",
-  fontColor: "#ffffff",
   iconHover: "#5C5C5C",
-  highlightFont: "#ccd6f6",
+  fontColor: "#ffffff",
   faintColor: "#5d516b",
-  oppositeFontColor: "#2C2C31",
   grey1: "#B3B3B3", // light
   grey2: "#9E9E9E", // mid
   grey3: "#616161", // dark
   greyText: "#b3b3b3",
-  loadingBlocks: "#5C5C5C",
   disabled: "#616161",
   selection: "#474C50",
   backgrounds: {

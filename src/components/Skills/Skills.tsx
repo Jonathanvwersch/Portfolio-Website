@@ -112,7 +112,6 @@ const Skills = () => {
       <Flex
         width="100%"
         style={{
-          borderBottom: `solid 1px ${theme.colors.faintColor}`,
           overflow: "auto",
         }}
       >
@@ -194,13 +193,15 @@ const TabButton = styled.button<{ isActive?: boolean }>`
   border: none;
   padding: ${({ theme }) => theme.spacers.size8};
   border-bottom: ${({ theme, isActive }) =>
-    isActive && `solid 1px ${theme.colors.primary}`};
+    isActive
+      ? `solid 2px ${theme.colors.primary}`
+      : `solid 1px ${theme.colors.faintColor}`};
   color: ${({ theme, isActive }) =>
-    isActive ? theme.colors.fontColor : theme.colors.faintColor};
+    isActive ? theme.colors.primary : theme.colors.faintColor};
   &:hover {
     color: ${({ theme }) => theme.colors.fontColor};
     background: ${({ theme }) => theme.colors.faintColor};
-    border-bottom: ${({ theme }) => `solid 1px ${theme.colors.primary}`};
+    border-bottom: ${({ theme }) => `solid 2px ${theme.colors.primary}`};
   }
 `
 

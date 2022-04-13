@@ -5,7 +5,7 @@ import { IconType } from "../definitions"
 
 const YoutubeIcon = ({ color, size }: IconType) => {
   const theme = useContext(ThemeContext)
-  const iconColor = color ? color : theme.colors.primary
+  const iconColor = color ? color : theme.colors.iconColor
 
   return (
     <Svg size={size} viewBox="0 0 16 16" fill="none">

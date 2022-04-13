@@ -124,12 +124,17 @@ export const NavWrapper = styled.div`
     ${fadeInAnimation};
     animation-duration: 2500ms;
   }
+
+  li:nth-child(7) {
+    ${fadeInAnimation};
+    animation-duration: 2700ms;
+  }
 `
 
 export const NavLinks = styled.ol<{ isVertical?: boolean }>`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding: 0px;
   margin: 0px;
   gap: ${({ theme, isVertical }) =>

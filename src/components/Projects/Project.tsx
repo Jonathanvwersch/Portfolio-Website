@@ -34,9 +34,7 @@ const Project = ({
     <DescriptionWrapper image={image}>
       {!showDescription && (
         <HeaderWrapper>
-          <H3 fontColor={theme.colors.fontHighlight} styledAs="h6">
-            {title}
-          </H3>
+          <H3 styledAs="h6">{title}</H3>
         </HeaderWrapper>
       )}
 
@@ -48,55 +46,57 @@ const Project = ({
         </LearnMore>
       )}
       {showDescription && (
-        <IconWrapper
-          styles={{
-            position: "absolute",
-            top: theme.spacers.size8,
-            right: theme.spacers.size8,
-            zIndex: 1,
-          }}
-          handleClick={() => setShowDescription(false)}
-        >
-          <CloseIcon size={SIZES.LARGE} color={theme.colors.fontColor} />
-        </IconWrapper>
-      )}
-      {showDescription && (
-        <Description ref={ref}>
-          <H3 styledAs="h5">Dekked</H3>
-          <BulletPointsWrapper>
-            {bulletPoints.map(b => (
-              <li key={b}>{b}</li>
-            ))}
-          </BulletPointsWrapper>
-          <Skills>
-            {skills.map(s => (
-              <li key={s}>{s}</li>
-            ))}
-          </Skills>
-          {githubLink || videoLink ? (
-            <Flex
-              style={{ gap: theme.spacers.size16 }}
-              alignItems="center"
-              mt={theme.spacers.size20}
-            >
-              {videoLink && (
-                <Button handleClick={() => navigate(videoLink)}>
-                  <Flex
-                    style={{ gap: theme.spacers.size8 }}
-                    alignItems="center"
-                  >
-                    Watch video <PlayIcon />
-                  </Flex>
-                </Button>
-              )}
-              {githubLink && (
-                <ExternalLink href={githubLink} openInNewTab>
-                  <GithubIcon size={SIZES.XLARGE} />
-                </ExternalLink>
-              )}
-            </Flex>
-          ) : null}
-        </Description>
+        <>
+          <IconWrapper
+            styles={{
+              position: "absolute",
+              top: theme.spacers.size8,
+              right: theme.spacers.size8,
+              zIndex: 1,
+            }}
+            handleClick={() => setShowDescription(false)}
+          >
+            <CloseIcon size={SIZES.LARGE} />
+          </IconWrapper>
+
+          <Description ref={ref}>
+            <H3 styledAs="h5">Dekked</H3>
+            <BulletPointsWrapper>
+              {bulletPoints.map(b => (
+                <li key={b}>{b}</li>
+              ))}
+            </BulletPointsWrapper>
+            <Skills>
+              {skills.map((s, i) => (
+                <li key={s}>{`${s}${i === skills.length - 1 ? "" : " •"}`}</li>
+              ))}
+            </Skills>
+
+            {githubLink || videoLink ? (
+              <Flex
+                style={{ gap: theme.spacers.size16 }}
+                alignItems="center"
+                mt={theme.spacers.size20}
+              >
+                {videoLink && (
+                  <Button handleClick={() => navigate(videoLink)}>
+                    <Flex
+                      style={{ gap: theme.spacers.size8 }}
+                      alignItems="center"
+                    >
+                      Watch video <PlayIcon />
+                    </Flex>
+                  </Button>
+                )}
+                {githubLink && (
+                  <ExternalLink href={githubLink} openInNewTab>
+                    <GithubIcon size={SIZES.XLARGE} />
+                  </ExternalLink>
+                )}
+              </Flex>
+            ) : null}
+          </Description>
+        </>
       )}
     </DescriptionWrapper>
   )
@@ -109,10 +109,6 @@ const Skills = styled.ul`
   position: relative;
   font-size: ${({ theme }) => theme.typography.fontSizes.size14};
   margin-bottom: ${({ theme }) => theme.spacers.size16};
-
-  li:nth-child(odd) {
-    color: ${({ theme }) => theme.colors.highlightFont};
-  }
 
   font-family: ${({ theme }) => theme.typography.fontFamilyMono};
 
@@ -147,10 +143,10 @@ const BulletPointsWrapper = styled.ul`
 `
 
 const DescriptionWrapper = styled.div<{ image: any }>`
-  background: ${({ theme }) => theme.colors.backgrounds.lightbox};
+  background: ${({ theme }) => theme.colors.backgrounds.modalBackground};
   min-height: 400px;
+  overflow: hidden;
   z-index: 0;
-  color: ${({ theme }) => theme.colors.fontColor};
   position: relative;
   background-image: ${({ image }) => `url(${image})`};
   border-radius: ${({ theme }) => theme.sizes.borderRadius[SIZES.MEDIUM]};
@@ -164,11 +160,12 @@ const DescriptionWrapper = styled.div<{ image: any }>`
 `
 
 const Description = styled.div`
-  background: ${({ theme }) => theme.colors.backgrounds.lightbox};
+  background: ${({ theme }) => theme.colors.backgrounds.modalBackground};
   width: 100%;
   min-height: 400px;
   height: 100%;
   padding: ${({ theme }) => theme.spacers.size32};
+  color: ${({ theme }) => theme.colors.fontColor};
 `
 
 const HeaderWrapper = styled.div`
@@ -178,7 +175,7 @@ const HeaderWrapper = styled.div`
   border-left: none;
   border-top: none;
   padding: ${({ theme }) => theme.spacers.size16};
-  background: ${({ theme }) => theme.colors.backgrounds.lightbox};
+  background: ${({ theme }) => theme.colors.backgrounds.modalBackground};
   border-bottom-right-radius: ${({ theme }) =>
     theme.sizes.borderRadius[SIZES.MEDIUM]};
 `
@@ -191,18 +188,7 @@ const LearnMore = styled.div`
   border-top-left-radius: ${({ theme }) =>
     theme.sizes.borderRadius[SIZES.MEDIUM]};
   padding: ${({ theme }) => theme.spacers.size16};
-  background: ${({ theme }) => theme.colors.backgrounds.lightbox};
-`
-
-const ImageWrapper = styled.div`
-  width: 100%;
-  vertical-align: middle;
-  position: relative;
-`
-
-const Image = styled.img`
-  width: 100%;
-  border-radius: ${({ theme }) => theme.sizes.borderRadius[SIZES.MEDIUM]};
+  background: ${({ theme }) => theme.colors.backgrounds.modalBackground};
 `
 
 export default Project
