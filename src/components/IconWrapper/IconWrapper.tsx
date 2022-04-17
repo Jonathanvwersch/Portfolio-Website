@@ -4,7 +4,9 @@ import styled from "styled-components"
 type IconWrapperProps = {
   handleClick?: () => void
   styles?: React.CSSProperties
+  ariaLabel?: string
   as?: any
+  tabIndex?: number
 }
 
 const IconWrapper: React.FC<IconWrapperProps> = ({
@@ -12,15 +14,23 @@ const IconWrapper: React.FC<IconWrapperProps> = ({
   handleClick,
   styles,
   as,
+  ariaLabel,
+  tabIndex,
 }) => {
   return (
-    <StyledIconWrapper as={as} style={styles} onClick={handleClick}>
+    <StyledIconWrapper
+      as={as}
+      style={styles}
+      onClick={handleClick}
+      aria-label={ariaLabel}
+      tabIndex={tabIndex}
+    >
       {children}
     </StyledIconWrapper>
   )
 }
 
-const StyledIconWrapper = styled.button`
+const StyledIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

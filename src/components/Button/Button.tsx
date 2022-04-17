@@ -20,6 +20,8 @@ type ButtonProps = {
   as?: any
   fontWeight?: string
   buttonRef?: React.RefObject<HTMLButtonElement>
+  href?: string
+  openInNewTab?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -33,6 +35,7 @@ const Button: React.FC<ButtonProps> = ({
   size = SIZES.SMALL,
   width,
   className,
+  openInNewTab,
   fontSize,
   borderRadius,
   ariaLabel,
@@ -56,6 +59,10 @@ const Button: React.FC<ButtonProps> = ({
       borderRadius={borderRadius}
       aria-label={ariaLabel}
       ref={buttonRef}
+      {...(openInNewTab && {
+        target: "_blank",
+        rel: "noopener noreferrer",
+      })}
       fontSize={fontSize}
       buttonStyle={buttonStyle}
       fontWeight={fontWeight}

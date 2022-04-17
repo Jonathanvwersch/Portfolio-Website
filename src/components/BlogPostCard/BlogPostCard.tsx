@@ -29,13 +29,25 @@ const BlogPostCard = ({
   const domRef = useRef()
   const isVisible = useVisibleOnScreen(domRef, true)
 
+  const handleNavigation = () => navigate(`/blog/${path}`)
+
   return (
-    <FadeInAndTranslateSection
+    <BlogWrapper
       isVisible={isVisible}
       ref={domRef}
       style={{ flexGrow: "1", flexBasis: "0" }}
+      role="button"
+      onClick={handleNavigation}
+      onKeyDown={e => {
+        if (e.key === "Enter") {
+          handleNavigation()
+        }
+      }}
+      tabIndex={0}
     >
-      <Post onClick={() => navigate(`/blog/${path}`)}>
+      <Post
+        aria-label={`Click to navigate to full blog post on the topic of ${title}`}
+      >
         <Thumbnail src={img} alt={title} isOnFrontPage={isOnFrontPage} />
         <Box p={theme.spacers.size20}>
           <header>
@@ -54,9 +66,16 @@ const BlogPostCard = ({
           </Paragraph>
         </Box>
       </Post>
-    </FadeInAndTranslateSection>
+    </BlogWrapper>
   )
 }
+
+const BlogWrapper = styled(FadeInAndTranslateSection)`
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.02);
+  }
+`
 
 const Thumbnail = styled.img<{ isOnFrontPage?: boolean }>`
   max-width: 100%;
@@ -75,10 +94,6 @@ const Post = styled.article`
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.backgrounds.lightbox};
   border: solid 1px ${({ theme }) => theme.colors.primary};
-
-  &:hover {
-    transform: scale(1.02);
-  }
 `
 
 export default BlogPostCard

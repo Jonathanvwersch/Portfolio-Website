@@ -1,22 +1,7 @@
 import { Flex } from "@rebass/grid"
 import * as React from "react"
-import { useContext, useRef, useState } from "react"
-import styled, { ThemeContext } from "styled-components"
-import { SIZES } from "../../definitions"
-import {
-  ApolloIcon,
-  CypressIcon,
-  FigmaIcon,
-  GitIcon,
-  GraphQLIcon,
-  HTMLIcon,
-  JiraIcon,
-  NodeJsIcon,
-  PostgresSqlIcon,
-  PythonIcon,
-  ReactIcon,
-  TypescriptIcon,
-} from "../../icons"
+import { useRef, useState } from "react"
+import styled from "styled-components"
 import { useResponsiveLayout, useVisibleOnScreen } from "../../utils"
 import { LAYOUT_VERTICAL } from "../../utils/hooks/useResponsiveLayout"
 import { H2 } from "../Headers/Headers"
@@ -69,42 +54,10 @@ const skills = {
 }
 
 const Skills = () => {
-  const theme = useContext(ThemeContext)
   const isVertical = useResponsiveLayout() === LAYOUT_VERTICAL
   const [tab, setTab] = useState<Tabs>(Tabs.PROGRAMMING)
   const domRef = useRef()
   const isVisible = useVisibleOnScreen(domRef, true)
-
-  // const icons = {
-  //   [Tabs.FRONTEND]: (
-  //     <>
-  //       <ReactIcon size={SIZES.XLARGE} />
-  //       <GraphQLIcon size={SIZES.XLARGE} />
-  //       <CypressIcon size={SIZES.XLARGE} />
-  //     </>
-  //   ),
-  //   [Tabs.PROGRAMMING]: (
-  //     <>
-  //       <TypescriptIcon size={SIZES.XLARGE} />
-  //       <HTMLIcon size={SIZES.XLARGE} />
-  //       <PythonIcon size={SIZES.XLARGE} />
-  //     </>
-  //   ),
-  //   [Tabs.OTHER]: (
-  //     <>
-  //       <JiraIcon size={SIZES.XLARGE} />
-  //       <GitIcon size={SIZES.XLARGE} />
-  //       <FigmaIcon size={SIZES.XLARGE} />
-  //     </>
-  //   ),
-  //   [Tabs.BACKEND]: (
-  //     <>
-  //       <PostgresSqlIcon size={SIZES.XLARGE} />
-  //       <NodeJsIcon size={SIZES.XLARGE} />
-  //       <ApolloIcon size={SIZES.XLARGE} />
-  //     </>
-  //   ),
-  // }
 
   return (
     <StyledSection id="Skills" ref={domRef} isVisible={isVisible} as="section">
@@ -155,7 +108,7 @@ const SkillList = styled.ul<{ isVertical?: boolean }>`
   display: grid;
   grid-template-columns: repeat(4, minmax(140px, 200px));
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 800px) {
     grid-template-columns: repeat(1, minmax(140px, 200px));
   }
 
@@ -198,9 +151,12 @@ const TabButton = styled.button<{ isActive?: boolean }>`
       : `solid 1px ${theme.colors.faintColor}`};
   color: ${({ theme, isActive }) =>
     isActive ? theme.colors.primary : theme.colors.faintColor};
-  &:hover {
+  font-weight: ${({ isActive }) => (isActive ? "bold" : undefined)};
+  &:hover,
+  &:focus-visible {
     color: ${({ theme }) => theme.colors.fontColor};
     background: ${({ theme }) => theme.colors.faintColor};
+    font-weight: bold;
     border-bottom: ${({ theme }) => `solid 2px ${theme.colors.primary}`};
   }
 `

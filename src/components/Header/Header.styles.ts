@@ -30,9 +30,11 @@ const HamburgerMenuActive = css`
 `
 
 export const HamburgerMenu = styled.div<{ isActive?: boolean }>`
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 800px) {
     display: none;
   }
+  border: none;
+  outline: none;
 
   z-index: 2;
   cursor: pointer;
@@ -80,14 +82,14 @@ export const NavWrapper = styled.div`
   animation-duration: 1000ms;
 
   .horizontal-screen {
-    @media screen and (max-width: 768px) {
-      display: none;
+    @media screen and (max-width: 800px) {
+      display: none !important;
     }
   }
 
   .vertical-screen {
-    @media screen and (min-width: 768px) {
-      display: none;
+    @media screen and (min-width: 800px) {
+      display: none !important;
     }
   }
 
@@ -130,38 +132,33 @@ export const NavWrapper = styled.div`
     ${fadeInAnimation};
     animation-duration: 2700ms;
   }
-`
 
-export const NavLinks = styled.ol<{ isVertical?: boolean }>`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px;
-  margin: 0px;
-  gap: ${({ theme, isVertical }) =>
-    isVertical ? theme.spacers.size20 : theme.spacers.size12};
-  list-style: none;
-  position: relative;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    gap: ${({ theme }) => theme.spacers.size12};
+    list-style: none;
+    position: relative;
 
-  a {
-    font-size: ${({ theme, isVertical }) =>
-      isVertical
-        ? theme.typography.fontSizes.size14
-        : theme.typography.fontSizes.size12};
-  }
+    a {
+      font-size: ${({ theme }) => theme.typography.fontSizes.size14};
 
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-  }
+      font-family: ${({ theme }) => theme.typography.fontFamilyMono};
+      padding: ${({ theme }) => theme.spacers.size16};
 
-  li {
-    font-family: ${({ theme }) => theme.typography.fontFamilyMono};
-    a::before {
-      color: ${({ theme }) => theme.colors.primary};
-      margin-right: ${({ theme }) => theme.spacers.size8};
-      text-align: right;
+      &:before {
+        color: ${({ theme }) => theme.colors.primary};
+        margin-right: ${({ theme }) => theme.spacers.size8};
+        text-align: right;
+      }
     }
-    padding: ${({ theme }) => theme.spacers.size16};
+
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+    }
   }
 `
 
@@ -172,6 +169,21 @@ export const NavMenu = styled.aside<{ isActive?: boolean }>`
   bottom: 0;
   right: ${({ isActive }) => (isActive ? "0" : "-100%")};
   padding: ${({ theme }) => theme.spacers.size32};
-  padding-top: ${({ theme }) => theme.spacers.size48};
+  padding-top: ${({ theme }) => theme.spacers.size64};
   background-color: ${({ theme }) => theme.colors.backgrounds.modalBackground};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  nav + div {
+    margin-top: 24px;
+  }
+`
+
+export const ToggleAndNavContainer = styled.div`
+  display: flex;
+  align-items: center;
+  nav + div {
+    margin-left: 24px;
+  }
 `

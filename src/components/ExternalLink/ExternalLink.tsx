@@ -21,6 +21,7 @@ type LinkProps = {
   target?: HTMLAttributeAnchorTarget
   openInNewTab?: boolean
   rel?: string
+  ariaLabel?: string
   ref?: React.RefObject<any>
   referrerPolicy?: HTMLAttributeReferrerPolicy
   type?: string
@@ -32,6 +33,7 @@ const ExternalLink: React.FC<LinkProps> = ({ children, ...props }) => {
   return (
     <StyledLink
       {...props}
+      aria-label={props.ariaLabel}
       className={props.className}
       {...(props.openInNewTab && {
         target: "_blank",
@@ -44,8 +46,7 @@ const ExternalLink: React.FC<LinkProps> = ({ children, ...props }) => {
 }
 
 const StyledLink = styled.a<LinkProps>`
-  font-size: ${({ fontSize, theme }) =>
-    fontSize ? fontSize : theme.typography.fontSizes.size12};
+  font-size: ${({ fontSize }) => (fontSize ? fontSize : "inherit")};
   font-weight: ${({ fontWeight }) => fontWeight};
   color: ${({ fontColor, theme }) =>
     fontColor ? fontColor : theme.colors.fontColor};
@@ -57,7 +58,8 @@ const StyledLink = styled.a<LinkProps>`
   text-decoration: ${({ textDecoration }) =>
     textDecoration || "none"}!important;
 
-  &:hover {
+  &:hover,
+  &:focus {
     text-decoration: ${({ textDecoration }) => textDecoration || "none"};
   }
 
@@ -67,8 +69,13 @@ const StyledLink = styled.a<LinkProps>`
     white-space: nowrap;
   }
 
+  &:focus,
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
+
+    svg {
+      transform: scale(1.2);
+    }
   }
 `
 

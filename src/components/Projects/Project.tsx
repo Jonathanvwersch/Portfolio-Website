@@ -1,7 +1,7 @@
 import { Flex } from "@rebass/grid"
 import { navigate } from "gatsby"
 import * as React from "react"
-import { useContext, useRef, useState } from "react"
+import { useContext, useState } from "react"
 import styled, { ThemeContext } from "styled-components"
 import { Button, ExternalLink, H3, IconWrapper } from ".."
 import { SIZES } from "../../definitions"
@@ -51,7 +51,9 @@ const Project = ({
               right: theme.spacers.size8,
               zIndex: 1,
             }}
+            as="button"
             handleClick={() => setShowDescription(false)}
+            ariaLabel="Close project description overlay"
           >
             <CloseIcon size={SIZES.LARGE} />
           </IconWrapper>
@@ -148,8 +150,9 @@ const DescriptionWrapper = styled.div<{ image: any }>`
   background-image: ${({ image }) => `url(${image})`};
   border-radius: ${({ theme }) => theme.sizes.borderRadius[SIZES.MEDIUM]};
   background-size: cover;
+  border: solid 1px ${({ theme }) => theme.colors.primary};
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 800px) {
     li {
       font-size: ${({ theme }) => theme.typography.fontSizes.size12}!important;
     }

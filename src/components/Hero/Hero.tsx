@@ -45,14 +45,9 @@ const Hero: React.FC<HeroProps> = () => {
         </ExternalLink>
         . I love building products that make a positive difference to the world.
       </Paragraph>
-      <ExternalLink
-        openInNewTab
-        href={Resume}
-        fontColor="inherit"
-        className="resume"
-      >
-        <Button size={SIZES.MEDIUM}>Download my resume</Button>
-      </ExternalLink>
+      <Button as="a" size={SIZES.MEDIUM} openInNewTab href={Resume}>
+        Download my resume
+      </Button>
     </StyledHero>
   )
 }

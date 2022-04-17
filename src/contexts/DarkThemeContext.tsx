@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react"
-import { useLocalStorage } from "../utils/hooks/useLocalStorage"
+import { useLocalStorage } from "../utils"
 
 const DarkThemeContext = createContext<{
   isDarkMode: boolean
@@ -14,7 +14,6 @@ const DarkThemeProvider = ({ children }) => {
   const toggleFunction = () => {
     setValue(prevState => !prevState)
   }
-  console.log(value)
 
   return (
     <DarkThemeContext.Provider

@@ -1,10 +1,10 @@
 import * as React from "react"
 import {
   HamburgerMenu,
-  NavLinks,
   NavMenu,
   HeaderWrapper,
   NavWrapper,
+  ToggleAndNavContainer,
 } from "./Header.styles"
 import { LogoIcon } from "../../icons"
 import { IconWrapper, ExternalLink } from ".."
@@ -38,45 +38,74 @@ const Header = ({ hideLinks }: Props) => {
     !isVertical && setShowMenu(false)
   }, [setShowMenu, isVertical])
 
+  const DarkModeToggleComponent = (
+    <Switch
+      handleToggle={toggleDarkMode}
+      isChecked={isDarkMode}
+      ariaLabel={`Click to toggle ${isDarkMode ? "light" : "dark"} mode`}
+    />
+  )
+
   const navLinks = (
-    <NavLinks>
+    <>
       {navDetails.map(({ href, title }) => (
-        <li key={title}>
-          <ExternalLink href={`/#${href}`}>{title}</ExternalLink>
-        </li>
+        <ExternalLink key={title} href={`/#${href}`}>
+          {title}
+        </ExternalLink>
       ))}
-      <li>
-        <Switch handleToggle={toggleDarkMode} isChecked={isDarkMode} />
-      </li>
-    </NavLinks>
+    </>
   )
 
   return (
     <HeaderWrapper>
       <NavWrapper>
-        <IconWrapper handleClick={() => navigate("/")}>
+        <IconWrapper
+          as="button"
+          handleClick={() => navigate("/")}
+          ariaLabel="Logo icon: Click to navigate to top of home page"
+        >
           <LogoIcon />
         </IconWrapper>
         {!hideLinks ? (
           <>
             {/* Vertical Screen */}
             <HamburgerMenu
+              aria-expanded={!showMenu ? "false" : "true"}
+              aria-controls="SideMenu"
+              aria-haspopup={!showMenu ? "menu" : undefined}
+              role="button"
+              tabIndex={0}
+              onKeyDown={e => {
+                if (e.key === "Enter") {
+                  setShowMenu(prevState => !prevState)
+                }
+              }}
               className="vertical-screen"
               onClick={() => setShowMenu(prevState => !prevState)}
               isActive={showMenu}
+              aria-label={!showMenu ? "Open menu" : "Close menu"}
             >
               <span />
             </HamburgerMenu>
-            <NavMenu isActive={showMenu} className="vertical-screen">
-              <nav>{navLinks}</nav>
-            </NavMenu>
+            {showMenu && (
+              <NavMenu
+                isActive={showMenu}
+                className="vertical-screen"
+                id="SideMenu"
+              >
+                <nav>{navLinks}</nav>
+                {DarkModeToggleComponent}
+              </NavMenu>
+            )}
 
             {/* Horizontal Screen */}
-            <nav className="horizontal-screen">{navLinks}</nav>
+            <ToggleAndNavContainer className="horizontal-screen">
+              <nav>{navLinks}</nav>
+              {DarkModeToggleComponent}
+            </ToggleAndNavContainer>
           </>
-        ) : null}
-        {hideLinks && (
-          <Switch handleToggle={toggleDarkMode} isChecked={isDarkMode} />
+        ) : (
+          DarkModeToggleComponent
         )}
       </NavWrapper>
     </HeaderWrapper>

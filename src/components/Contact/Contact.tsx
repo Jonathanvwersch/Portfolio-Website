@@ -25,13 +25,9 @@ const About = () => {
         reach out to me. I'm not currently looking for any new job
         opportunities, but my inbox remains open regardless!
       </Paragraph>
-      <ExternalLink
-        openInNewTab
-        href="mailto:jonathanvwersch@gmail.com"
-        fontColor="inherit"
-      >
-        <Button>Contact me</Button>
-      </ExternalLink>
+      <Button as="a" openInNewTab href="mailto:jonathanvwersch@gmail.com">
+        Contact me
+      </Button>
     </StyledSection>
   )
 }

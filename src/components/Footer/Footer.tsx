@@ -20,17 +20,26 @@ const Footer = () => {
             href="https://www.linkedin.com/in/jonathan-van-wersch"
             target="_blank"
             openInNewTab
+            ariaLabel="Click here to visit my LinkedIn"
           >
             <LinkedInIcon />
           </ExternalLink>
         </IconWrapper>
         <IconWrapper as="li">
-          <ExternalLink href="https://github.com/Jonathanvwersch" openInNewTab>
+          <ExternalLink
+            href="https://github.com/Jonathanvwersch"
+            openInNewTab
+            ariaLabel="Click here to visit my Github"
+          >
             <GithubIcon />
           </ExternalLink>
         </IconWrapper>
         <IconWrapper as="li">
-          <ExternalLink href="https://twitter.com/jonathanvwersch" openInNewTab>
+          <ExternalLink
+            href="https://twitter.com/jonathanvwersch"
+            openInNewTab
+            ariaLabel="Click here to visit my Twitter"
+          >
             <TwitterIcon />
           </ExternalLink>
         </IconWrapper>
@@ -38,6 +47,7 @@ const Footer = () => {
           <ExternalLink
             href="https://www.youtube.com/channel/UCksfLzZQrOTSVkr2auvac_w"
             openInNewTab
+            ariaLabel="Click here to visit my Youtube page"
           >
             <YoutubeIcon />
           </ExternalLink>

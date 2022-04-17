@@ -49,7 +49,7 @@ export const StyledButton = styled.button<ButtonProps>`
 
   &:focus-visible,
   &:hover {
-    filter: ${({ theme }) => theme.colors.hover.filter};
+    transform: scale(1.05);
   }
 
   &:active {

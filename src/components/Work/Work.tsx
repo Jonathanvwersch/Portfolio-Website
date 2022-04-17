@@ -82,11 +82,11 @@ const Work = () => {
 
   const Job = (
     <Flex flexDirection="column" style={{ gap: theme.spacers.size8 }}>
-      <ExternalLink textDecoration="underline" href={url} openInNewTab>
-        <H3 styledAs="h5" fontColor={theme.colors.primary}>
+      <H3 styledAs="h5">
+        <ExternalLink textDecoration="underline" href={url} openInNewTab>
           {company}
-        </H3>
-      </ExternalLink>
+        </ExternalLink>
+      </H3>
       <H4 styledAs="h6">{title}</H4>
       <Paragraph fontFamily={theme.typography.fontFamilyMono}>
         {dateRange}
@@ -177,7 +177,11 @@ const TabButton = styled.button<{ isActive?: boolean }>`
   color: ${({ theme, isActive }) =>
     isActive ? theme.colors.primary : theme.colors.faintColor};
   text-align: left;
-  &:hover {
+  font-weight: ${({ isActive }) => (isActive ? "bold" : undefined)};
+
+  &:hover,
+  &:focus-visible {
+    font-weight: bold;
     color: ${({ theme }) => theme.colors.fontColor};
     background: ${({ theme }) => theme.colors.faintColor};
     border-left: ${({ theme }) => `solid 2px ${theme.colors.primary}`};

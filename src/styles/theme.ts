@@ -143,13 +143,13 @@ export type ThemeType = {
 }
 
 const lightThemeColors: ThemeColors = {
-  primary: "#0b7eda",
+  primary: "#0967B3",
   secondary: "#ab47bc",
   danger: "#DB524B",
   success: "#0CCA4A",
   iconColor: "#0288d1",
   fontColor: "#2C2C31",
-  faintColor: "#90caf9",
+  faintColor: "#6B6B6B",
   iconHover: "rgba(60, 45, 40, 0.1)",
   grey1: "#A9A9A9", // dark
   grey2: "#D3D3D3", // mid
@@ -178,7 +178,7 @@ const darkThemeColors: ThemeColors = {
   iconColor: "#03DA86",
   iconHover: "#5C5C5C",
   fontColor: "#ffffff",
-  faintColor: "#5d516b",
+  faintColor: "#897698",
   grey1: "#B3B3B3", // light
   grey2: "#9E9E9E", // mid
   grey3: "#616161", // dark

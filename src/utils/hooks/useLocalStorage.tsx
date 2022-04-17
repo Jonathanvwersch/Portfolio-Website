@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const isBrowser = typeof window !== "undefined"
 
 // use in place of usestate for state variables you wish to save in local storage
-export function useLocalStorage<T>(defaultValue: T, key: string) {
+function useLocalStorage<T>(defaultValue: T, key: string) {
   const [value, setValue] = useState<T>(() => {
     const stickyValue = isBrowser ? window.localStorage.getItem(key) : null
     return stickyValue !== null ? JSON.parse(stickyValue) : defaultValue
@@ -14,3 +14,5 @@ export function useLocalStorage<T>(defaultValue: T, key: string) {
 
   return { value, setValue }
 }
+
+export default useLocalStorage

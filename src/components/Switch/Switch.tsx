@@ -6,18 +6,29 @@ import { MoonIcon, SunIcon } from "../../icons"
 
 type Props = {
   isChecked: boolean
+  ariaLabel: string
   handleToggle: () => void
+  ariaHidden?: "true" | "false"
   id?: string
   width?: string
   isCheckedIcon?: ReactNode
   isNotCheckedIcon?: ReactNode
+  styles?: React.CSSProperties
 }
 
-const Switch = ({ id, width, isChecked, handleToggle }: Props) => {
+const Switch = ({
+  id,
+  width,
+  isChecked,
+  handleToggle,
+  ariaLabel,
+  ariaHidden,
+  styles,
+}: Props) => {
   const componentId = `${id || ""}Switch`
   const theme = useContext(ThemeContext)
   return (
-    <Flex>
+    <Flex style={styles} aria-hidden={ariaHidden}>
       <Input
         id={componentId}
         type="checkbox"
@@ -25,7 +36,17 @@ const Switch = ({ id, width, isChecked, handleToggle }: Props) => {
         onChange={handleToggle}
       />
       <Label htmlFor={componentId} width={width}>
-        <SwitchButton width={width} />
+        <SwitchButton
+          width={width}
+          role="button"
+          aria-label={ariaLabel}
+          tabIndex={0}
+          onKeyDown={e => {
+            if (e.key === "Enter") {
+              handleToggle()
+            }
+          }}
+        />
         <IconWrapper isChecked={isChecked}>
           {isChecked && (
             <SunIcon color={theme.colors.backgrounds.pageBackground} />

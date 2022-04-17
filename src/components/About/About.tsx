@@ -4,6 +4,7 @@ import styled, { ThemeContext } from "styled-components"
 import { Paragraph } from "../Paragraph"
 // @ts-ignore
 import ProfilePic from "../../images/ProfilePic.png"
+// @ts-ignore
 import ProfilePicLight from "../../images/ProfilePicLight.png"
 import { H2 } from "../Headers/Headers"
 import { Flex } from "@rebass/grid"
@@ -40,7 +41,10 @@ const About = () => {
           runner and sports player. I also love to read, and work on
           engineering-related side projects.
         </Paragraph>
-        <Image src={isDarkMode ? ProfilePic : ProfilePicLight} />
+        <Image
+          src={isDarkMode ? ProfilePic : ProfilePicLight}
+          alt="Profile picture of Jonathan van Wersch"
+        />
       </MediaFlex>
     </StyledSection>
   )
@@ -52,7 +56,7 @@ const MediaFlex = styled(Flex)`
   flex-direction: row;
   align-items: flex-start;
   gap: ${({ theme }) => theme.spacers.size32};
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 800px) {
     flex-direction: column;
   }
 `
