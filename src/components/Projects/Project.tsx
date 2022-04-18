@@ -28,7 +28,10 @@ const Project = ({
   const [showDescription, setShowDescription] = useState<boolean>(false)
 
   return (
-    <DescriptionWrapper image={image}>
+    <DescriptionWrapper
+      image={image}
+      title={`Background image of ${title} project`}
+    >
       {!showDescription && (
         <HeaderWrapper>
           <H3 styledAs="h6">{title}</H3>
@@ -88,7 +91,7 @@ const Project = ({
                   </Button>
                 )}
                 {githubLink && (
-                  <ExternalLink href={githubLink} openInNewTab>
+                  <ExternalLink href={githubLink}>
                     <GithubIcon size={SIZES.XLARGE} />
                   </ExternalLink>
                 )}

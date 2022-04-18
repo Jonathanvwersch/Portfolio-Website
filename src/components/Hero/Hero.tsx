@@ -37,7 +37,6 @@ const Hero: React.FC<HeroProps> = () => {
         I am currently working as a software engineer at{" "}
         <ExternalLink
           href="https://www.improbable.io/"
-          openInNewTab
           fontSize="inherit"
           textDecoration="underline"
         >
@@ -45,7 +44,7 @@ const Hero: React.FC<HeroProps> = () => {
         </ExternalLink>
         . I love building products that make a positive difference to the world.
       </Paragraph>
-      <Button as="a" size={SIZES.MEDIUM} openInNewTab href={Resume}>
+      <Button as="a" size={SIZES.MEDIUM} href={Resume}>
         Download my resume
       </Button>
     </StyledHero>

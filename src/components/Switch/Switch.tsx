@@ -73,7 +73,6 @@ const IconWrapper = styled.div<{ isChecked?: boolean }>`
 const Input = styled.input`
   height: 0;
   width: 0;
-  visibility: hidden;
 
   &:checked + label {
     span {

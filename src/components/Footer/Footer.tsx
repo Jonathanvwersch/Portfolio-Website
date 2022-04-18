@@ -18,8 +18,6 @@ const Footer = () => {
         <IconWrapper as="li">
           <ExternalLink
             href="https://www.linkedin.com/in/jonathan-van-wersch"
-            target="_blank"
-            openInNewTab
             ariaLabel="Click here to visit my LinkedIn"
           >
             <LinkedInIcon />
@@ -28,7 +26,6 @@ const Footer = () => {
         <IconWrapper as="li">
           <ExternalLink
             href="https://github.com/Jonathanvwersch"
-            openInNewTab
             ariaLabel="Click here to visit my Github"
           >
             <GithubIcon />
@@ -37,7 +34,6 @@ const Footer = () => {
         <IconWrapper as="li">
           <ExternalLink
             href="https://twitter.com/jonathanvwersch"
-            openInNewTab
             ariaLabel="Click here to visit my Twitter"
           >
             <TwitterIcon />
@@ -46,7 +42,6 @@ const Footer = () => {
         <IconWrapper as="li">
           <ExternalLink
             href="https://www.youtube.com/channel/UCksfLzZQrOTSVkr2auvac_w"
-            openInNewTab
             ariaLabel="Click here to visit my Youtube page"
           >
             <YoutubeIcon />
@@ -57,7 +52,6 @@ const Footer = () => {
         Built by Jonathan van Wersch. Design is heavily inspired by{" "}
         <ExternalLink
           href="https://brittanychiang.com/"
-          openInNewTab
           textDecoration="underline"
         >
           Brittany Chiang's porfolio

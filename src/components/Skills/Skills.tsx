@@ -26,6 +26,7 @@ const skills = {
     "NextJs",
     "Storybook",
     "React Query",
+    "Web accessibility",
   ],
   [Tabs.PROGRAMMING]: [
     "Typescript",

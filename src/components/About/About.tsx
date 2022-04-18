@@ -2,21 +2,18 @@ import * as React from "react"
 import { useContext, useRef } from "react"
 import styled, { ThemeContext } from "styled-components"
 import { Paragraph } from "../Paragraph"
-// @ts-ignore
-import ProfilePic from "../../images/ProfilePic.png"
-// @ts-ignore
-import ProfilePicLight from "../../images/ProfilePicLight.png"
+
 import { H2 } from "../Headers/Headers"
 import { Flex } from "@rebass/grid"
 import { FadeInAndTranslateSection } from "../StyledComponents"
 import { useVisibleOnScreen } from "../../utils"
-import { useDarkThemeContext } from "../../contexts/DarkThemeContext"
+import { StaticImage } from "gatsby-plugin-image"
 
 const About = () => {
   const theme = useContext(ThemeContext)
   const domRef = useRef()
   const isVisible = useVisibleOnScreen(domRef, true)
-  const { isDarkMode } = useDarkThemeContext()
+  const ProfilePicLight = "../../images/ProfilePicLight.png"
 
   return (
     <StyledSection id="About" ref={domRef} isVisible={isVisible} as="section">
@@ -41,8 +38,10 @@ const About = () => {
           runner and sports player. I also love to read, and work on
           engineering-related side projects.
         </Paragraph>
-        <Image
-          src={isDarkMode ? ProfilePic : ProfilePicLight}
+        <StaticImage
+          src={ProfilePicLight}
+          placeholder="blurred"
+          style={{ maxWidth: "350px" }}
           alt="Profile picture of Jonathan van Wersch"
         />
       </MediaFlex>
@@ -59,11 +58,6 @@ const MediaFlex = styled(Flex)`
   @media screen and (max-width: 800px) {
     flex-direction: column;
   }
-`
-
-const Image = styled.img`
-  max-width: 300px;
-  width: 100%;
 `
 
 export default About

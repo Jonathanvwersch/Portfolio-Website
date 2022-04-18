@@ -83,7 +83,7 @@ const Work = () => {
   const Job = (
     <Flex flexDirection="column" style={{ gap: theme.spacers.size8 }}>
       <H3 styledAs="h5">
-        <ExternalLink textDecoration="underline" href={url} openInNewTab>
+        <ExternalLink textDecoration="underline" href={url}>
           {company}
         </ExternalLink>
       </H3>
@@ -98,9 +98,7 @@ const Work = () => {
       </Box>
       <SkillList>
         {bulletPoints?.map((d: string, i: number) => (
-          <Fragment>
-            <SkillItem key={i}>{d}</SkillItem>
-          </Fragment>
+          <SkillItem key={i}>{d}</SkillItem>
         ))}
       </SkillList>
       <Paragraph fontFamily={theme.typography.fontFamilyMono}>{tech}</Paragraph>

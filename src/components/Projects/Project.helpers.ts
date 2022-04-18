@@ -36,6 +36,7 @@ const Portfolio = {
     "Built this portfolio website to showcase some of my work",
     "Added a blog using Netlify CMS, GraphQL, and Gatsby",
     "Built all components using React and Typescript",
+    "Ensured that website met all necessary accessibility rules",
   ],
   skills: [
     "React",
