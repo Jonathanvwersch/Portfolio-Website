@@ -38,6 +38,12 @@ const StyledIconWrapper = styled.div`
   cursor: pointer;
   background: transparent;
   border: none;
+  &:focus,
+  &:hover {
+    svg {
+      transform: scale(1.2);
+    }
+  }
 `
 
 export default IconWrapper

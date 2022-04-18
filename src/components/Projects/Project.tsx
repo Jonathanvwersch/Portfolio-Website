@@ -1,5 +1,6 @@
 import { Flex } from "@rebass/grid"
 import { navigate } from "gatsby"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import * as React from "react"
 import { useContext, useState } from "react"
 import styled, { ThemeContext } from "styled-components"
@@ -11,7 +12,7 @@ type Props = {
   title: string
   bulletPoints: string[]
   skills: string[]
-  image: any
+  image: IGatsbyImageData
   githubLink?: string
   videoLink?: string
 }
@@ -28,81 +29,109 @@ const Project = ({
   const [showDescription, setShowDescription] = useState<boolean>(false)
 
   return (
-    <DescriptionWrapper
-      image={image}
-      title={`Background image of ${title} project`}
-    >
-      {!showDescription && (
+    <StyledProject>
+      {/* Project image */}
+      <GatsbyImage image={image} alt={title} />
+      <HideContainer shouldHide={showDescription}>
         <HeaderWrapper>
           <H3 styledAs="h6">{title}</H3>
         </HeaderWrapper>
-      )}
 
-      {!showDescription && (
         <LearnMore>
           <Button handleClick={() => setShowDescription(true)}>
             Learn more
           </Button>
         </LearnMore>
-      )}
-      {showDescription && (
-        <>
-          <IconWrapper
-            styles={{
-              position: "absolute",
-              top: theme.spacers.size8,
-              right: theme.spacers.size8,
-              zIndex: 1,
-            }}
-            as="button"
-            handleClick={() => setShowDescription(false)}
-            ariaLabel="Close project description overlay"
-          >
-            <CloseIcon size={SIZES.LARGE} />
-          </IconWrapper>
+      </HideContainer>
+      <HideContainer shouldHide={!showDescription}>
+        <IconWrapper
+          styles={{
+            position: "absolute",
+            top: theme.spacers.size8,
+            right: theme.spacers.size8,
+            zIndex: 1,
+          }}
+          as="button"
+          handleClick={() => setShowDescription(false)}
+          ariaLabel="Close project description overlay"
+        >
+          <CloseIcon size={SIZES.LARGE} />
+        </IconWrapper>
 
-          <Description>
-            <H3 styledAs="h5">{title}</H3>
-            <BulletPointsWrapper>
-              {bulletPoints.map(b => (
-                <li key={b}>{b}</li>
-              ))}
-            </BulletPointsWrapper>
-            <Skills>
-              {skills.map((s, i) => (
-                <li key={s}>{`${s}${i === skills.length - 1 ? "" : " •"}`}</li>
-              ))}
-            </Skills>
+        <Description>
+          <H3 styledAs="h5">{title}</H3>
+          <BulletPointsWrapper>
+            {bulletPoints.map(b => (
+              <li key={b}>{b}</li>
+            ))}
+          </BulletPointsWrapper>
+          <Skills>
+            {skills.map((s, i) => (
+              <li key={s}>{`${s}${i === skills.length - 1 ? "" : " •"}`}</li>
+            ))}
+          </Skills>
 
-            {githubLink || videoLink ? (
-              <Flex
-                style={{ gap: theme.spacers.size16 }}
-                alignItems="center"
-                mt={theme.spacers.size20}
-              >
-                {videoLink && (
-                  <Button handleClick={() => navigate(videoLink)}>
-                    <Flex
-                      style={{ gap: theme.spacers.size8 }}
-                      alignItems="center"
-                    >
-                      Watch video <PlayIcon />
-                    </Flex>
-                  </Button>
-                )}
-                {githubLink && (
-                  <ExternalLink href={githubLink}>
-                    <GithubIcon size={SIZES.XLARGE} />
-                  </ExternalLink>
-                )}
-              </Flex>
-            ) : null}
-          </Description>
-        </>
-      )}
-    </DescriptionWrapper>
+          {githubLink || videoLink ? (
+            <Flex
+              style={{ gap: theme.spacers.size16 }}
+              alignItems="center"
+              mt={theme.spacers.size20}
+            >
+              {videoLink && (
+                <Button handleClick={() => navigate(videoLink)}>
+                  <Flex
+                    style={{ gap: theme.spacers.size8 }}
+                    alignItems="center"
+                  >
+                    Watch video <PlayIcon />
+                  </Flex>
+                </Button>
+              )}
+              {githubLink && (
+                <ExternalLink
+                  href={githubLink}
+                  ariaLabel={`Github link for project with name ${title}`}
+                >
+                  <GithubIcon size={SIZES.XLARGE} />
+                </ExternalLink>
+              )}
+            </Flex>
+          ) : null}
+        </Description>
+      </HideContainer>
+    </StyledProject>
   )
 }
+
+const HideContainer = styled.div<{ shouldHide?: boolean }>`
+  opacity: ${({ shouldHide }) => (shouldHide ? 0 : undefined)};
+  transition: opacity 500ms ${({ theme }) => theme.transition};
+`
+
+const StyledProject = styled.div`
+  background: ${({ theme }) => theme.colors.backgrounds.modalBackground};
+  min-height: 400px;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  border-radius: ${({ theme }) => theme.sizes.borderRadius[SIZES.MEDIUM]};
+  background-size: cover;
+  border: solid 1px ${({ theme }) => theme.colors.primary};
+
+  img {
+    object-fit: cover;
+  }
+
+  .gatsby-image-wrapper {
+    position: unset;
+  }
+
+  @media screen and (max-width: 800px) {
+    li {
+      font-size: ${({ theme }) => theme.typography.fontSizes.size12}!important;
+    }
+  }
+`
 
 const Skills = styled.ul`
   display: flex;
@@ -144,24 +173,6 @@ const BulletPointsWrapper = styled.ul`
   }
 `
 
-const DescriptionWrapper = styled.div<{ image: any }>`
-  background: ${({ theme }) => theme.colors.backgrounds.modalBackground};
-  min-height: 400px;
-  overflow: hidden;
-  z-index: 0;
-  position: relative;
-  background-image: ${({ image }) => `url(${image})`};
-  border-radius: ${({ theme }) => theme.sizes.borderRadius[SIZES.MEDIUM]};
-  background-size: cover;
-  border: solid 1px ${({ theme }) => theme.colors.primary};
-
-  @media screen and (max-width: 800px) {
-    li {
-      font-size: ${({ theme }) => theme.typography.fontSizes.size12}!important;
-    }
-  }
-`
-
 const Description = styled.div`
   background: ${({ theme }) => theme.colors.backgrounds.modalBackground};
   width: 100%;
@@ -169,6 +180,12 @@ const Description = styled.div`
   height: 100%;
   padding: ${({ theme }) => theme.spacers.size32};
   color: ${({ theme }) => theme.colors.fontColor};
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
 `
 
 const HeaderWrapper = styled.div`
@@ -187,6 +204,7 @@ const LearnMore = styled.div`
   position: absolute;
   right: 0;
   bottom: 0;
+  z-index: 10;
   border: none;
   border-top-left-radius: ${({ theme }) =>
     theme.sizes.borderRadius[SIZES.MEDIUM]};

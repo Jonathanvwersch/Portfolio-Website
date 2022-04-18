@@ -13,7 +13,7 @@ const About = () => {
   const theme = useContext(ThemeContext)
   const domRef = useRef()
   const isVisible = useVisibleOnScreen(domRef, true)
-  const ProfilePicLight = "../../images/ProfilePicLight.png"
+  const ProfilePic = "../../images/about/ProfilePic.png"
 
   return (
     <StyledSection id="About" ref={domRef} isVisible={isVisible} as="section">
@@ -39,7 +39,7 @@ const About = () => {
           engineering-related side projects.
         </Paragraph>
         <StaticImage
-          src={ProfilePicLight}
+          src={ProfilePic}
           placeholder="blurred"
           style={{ maxWidth: "350px" }}
           alt="Profile picture of Jonathan van Wersch"

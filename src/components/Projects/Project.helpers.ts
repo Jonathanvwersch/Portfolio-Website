@@ -1,8 +1,3 @@
-// @ts-ignore
-import ProjectDekked from "../../images/ProjectDekked.png"
-// @ts-ignore
-import PortfolioBackground from "../../images/PortfolioBackground.png"
-
 const Dekked = {
   title: "Dekked",
   bulletPoints: [
@@ -25,7 +20,6 @@ const Dekked = {
     "Netlify",
     "Gatsby",
   ],
-  image: ProjectDekked,
   githubLink: "https://github.com/Jonathanvwersch",
   videoLink: "https://loom.com/share/folder/3395420ad9fd427bb58329f930c5e288",
 }
@@ -36,7 +30,7 @@ const Portfolio = {
     "Built this portfolio website to showcase some of my work",
     "Added a blog using Netlify CMS, GraphQL, and Gatsby",
     "Built all components using React and Typescript",
-    "Ensured that website met all necessary accessibility rules",
+    "Ensured that the website met all necessary accessibility rules",
   ],
   skills: [
     "React",
@@ -46,7 +40,6 @@ const Portfolio = {
     "Netlify",
     "Styled Components",
   ],
-  image: PortfolioBackground,
   githubLink: "https://github.com/Jonathanvwersch/Portfolio-Website",
 }
 

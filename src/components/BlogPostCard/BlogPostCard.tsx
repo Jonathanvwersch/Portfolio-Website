@@ -17,14 +17,7 @@ type Props = {
   isOnFrontPage?: boolean
 }
 
-const BlogPostCard = ({
-  path,
-  title,
-  date,
-  excerpt,
-  img,
-  isOnFrontPage,
-}: Props) => {
+const BlogPostCard = ({ path, title, date, excerpt, img }: Props) => {
   const theme = useContext(ThemeContext)
   const domRef = useRef()
   const isVisible = useVisibleOnScreen(domRef, true)
@@ -48,7 +41,7 @@ const BlogPostCard = ({
       <Post
         aria-label={`Click to navigate to full blog post on the topic of ${title}`}
       >
-        <Thumbnail src={img} alt={title} isOnFrontPage={isOnFrontPage} />
+        <Thumbnail src={img} alt={title} height={448} />
         <Box p={theme.spacers.size20}>
           <header>
             <Box mb={theme.spacers.size8}>
@@ -77,15 +70,15 @@ const BlogWrapper = styled(FadeInAndTranslateSection)`
   }
 `
 
-const Thumbnail = styled.img<{ isOnFrontPage?: boolean }>`
+const Thumbnail = styled.img`
   max-width: 100%;
+  height: auto;
   aspect-ratio: 16/9;
   object-fit: cover;
   object-position: center center;
 `
 
 const Post = styled.article`
-  min-width: 300px;
   min-height: 150px;
   height: 100%;
   box-shadow: ${({ theme }) => theme.colors.backgrounds.lightbox};
