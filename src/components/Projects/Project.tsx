@@ -106,6 +106,7 @@ const Project = ({
 const HideContainer = styled.div<{ shouldHide?: boolean }>`
   opacity: ${({ shouldHide }) => (shouldHide ? 0 : undefined)};
   transition: opacity 500ms ${({ theme }) => theme.transition};
+  visibility: ${({ shouldHide }) => (shouldHide ? "hidden" : undefined)};
 `
 
 const StyledProject = styled.div`
