@@ -41,7 +41,6 @@ const About = () => {
         <StaticImage
           src={ProfilePic}
           placeholder="blurred"
-          style={{ maxWidth: "350px" }}
           alt="Profile picture of Jonathan van Wersch"
         />
       </MediaFlex>
@@ -54,6 +53,7 @@ const StyledSection = styled(FadeInAndTranslateSection)``
 const MediaFlex = styled(Flex)`
   flex-direction: row;
   align-items: flex-start;
+
   gap: ${({ theme }) => theme.spacers.size32};
   @media screen and (max-width: 800px) {
     flex-direction: column;
