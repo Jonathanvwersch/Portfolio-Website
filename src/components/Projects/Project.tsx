@@ -31,7 +31,10 @@ const Project = ({
   return (
     <StyledProject>
       {/* Project image */}
-      <GatsbyImage image={image} alt={title} />
+      <GatsbyImage
+        image={image}
+        alt={`An image of the web page associated with the ${title} project`}
+      />
       <HideContainer shouldHide={showDescription}>
         <HeaderWrapper>
           <H3 styledAs="h6">{title}</H3>

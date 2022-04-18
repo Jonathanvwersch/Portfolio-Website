@@ -1,6 +1,6 @@
 import { Box, Flex } from "@rebass/grid"
 import * as React from "react"
-import { Fragment, useContext, useRef, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import styled, { ThemeContext } from "styled-components"
 import { Paragraph, H2, H3, H4, ExternalLink } from "../"
 import { useVisibleOnScreen } from "../../utils"
@@ -28,7 +28,7 @@ const jobs: JobType = {
   [Tabs.IMPROBABLE]: {
     company: "Improbable",
     title: "Software Engineer",
-    dateRange: "May 2022–",
+    dateRange: "May 2022 (current employment)",
     description: "Building out the metaverse...",
     url: "https://www.improbable.io/",
     bulletPoints: [],
@@ -36,7 +36,7 @@ const jobs: JobType = {
   [Tabs.ACRE]: {
     company: "Acre",
     title: "Frontend Engineer",
-    dateRange: "January 2021–March 2022",
+    dateRange: "January 2021 to March 2022",
     description:
       "Acre is an all-in-one mortgage platform, which serves both brokers and clients",
     url: "https://www.acresoftware.com",
@@ -53,7 +53,7 @@ const jobs: JobType = {
   [Tabs.UOB]: {
     company: "University of Bath",
     title: "Student",
-    dateRange: "September 2015–July 2020",
+    dateRange: "September 2015 to July 2020",
     description:
       "Completed an integrated masters in mechanical engineering graduating with first-class honours",
     url: "https://www.acresoftware.com",
