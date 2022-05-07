@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react"
-import { useLocalStorage } from "../utils"
+import { useState } from "react"
 
 const DarkThemeContext = createContext<{
   isDarkMode: boolean
@@ -10,15 +10,14 @@ const DarkThemeContext = createContext<{
 })
 
 const DarkThemeProvider = ({ children }) => {
-  const { value, setValue } = useLocalStorage(true, "dark-theme")
-  console.log({value})
+  const [isDarkMode, setIsDarkMode ]= useState(true)
   const toggleFunction = () => {
-    setValue(prevState => !prevState)
+    setIsDarkMode(prevState => !prevState)
   }
 
   return (
     <DarkThemeContext.Provider
-      value={{ isDarkMode: value, toggleDarkMode: toggleFunction }}
+      value={{ isDarkMode, toggleDarkMode: toggleFunction }}
     >
       {children}
     </DarkThemeContext.Provider>

@@ -12,7 +12,7 @@ import { BlogRollProps } from "../BlogRoll/BlogRoll"
 
 const Blog = ({ data }: BlogRollProps) => {
   const domRef = useRef()
-  const isVisible = useVisibleOnScreen(domRef, true)
+  const isVisible = useVisibleOnScreen(domRef, true)  
   const { edges: posts } = data.allMarkdownRemark
   const theme = useContext(ThemeContext)
 
