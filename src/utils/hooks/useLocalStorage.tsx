@@ -6,8 +6,10 @@ const isBrowser = typeof window !== "undefined"
 function useLocalStorage<T>(defaultValue: T, key: string) {
   const [value, setValue] = useState<T>(() => {
     const stickyValue = isBrowser ? window.localStorage.getItem(key) : null
+    console.log({stickyValue})
     return stickyValue !== null ? JSON.parse(stickyValue) : defaultValue
   })
+  console.log({value})
   useEffect(() => {
     window.localStorage.setItem(key, JSON.stringify(value))
   }, [key, value])

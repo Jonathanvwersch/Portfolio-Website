@@ -11,6 +11,7 @@ const DarkThemeContext = createContext<{
 
 const DarkThemeProvider = ({ children }) => {
   const { value, setValue } = useLocalStorage(true, "dark-theme")
+  console.log({value})
   const toggleFunction = () => {
     setValue(prevState => !prevState)
   }

@@ -17,10 +17,11 @@ type Props = {
 
 const InsideLayout = ({ children, hideLinks, dataAnimation }: Props) => {
   const { isDarkMode } = useDarkThemeContext()
+  console.log(isDarkMode)
 console.log(theme(isDarkMode))
 console.log(theme(isDarkMode))
   return (
-    <>
+
       <ThemeProvider theme={theme(isDarkMode)}>
         <GlobalStyle />
         <Flex flexDirection="column" style={{ minHeight: "100vh" }}>
@@ -29,7 +30,7 @@ console.log(theme(isDarkMode))
           <Footer />
         </Flex>
       </ThemeProvider>
-    </>
+
   )
 }
 
