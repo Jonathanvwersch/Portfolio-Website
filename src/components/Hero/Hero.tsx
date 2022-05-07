@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = () => {
         Jonathan van Wersch
       </H2>
       <H3 fontColor={theme.colors.secondary} styledAs="h1">
-        I love building products for the web
+        I love building software products on all platforms
       </H3>
       <Paragraph
         margin={`${theme.spacers.size24} 0px ${theme.spacers.size48}`}
@@ -42,7 +42,7 @@ const Hero: React.FC<HeroProps> = () => {
         >
           Improbable
         </ExternalLink>
-        . I love building products that make a positive difference to the world.
+        . I have passion for building out products that make a positive difference to the world.
       </Paragraph>
       <Button as="a" size={SIZES.MEDIUM} href={Resume}>
         Download my resume
