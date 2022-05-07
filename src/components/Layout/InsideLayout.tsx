@@ -17,7 +17,8 @@ type Props = {
 
 const InsideLayout = ({ children, hideLinks, dataAnimation }: Props) => {
   const { isDarkMode } = useDarkThemeContext()
-
+console.log(theme(isDarkMode))
+console.log(theme(isDarkMode))
   return (
     <>
       <ThemeProvider theme={theme(isDarkMode)}>

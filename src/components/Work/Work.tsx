@@ -29,7 +29,7 @@ const jobs: JobType = {
     company: "Improbable",
     title: "Software Engineer",
     dateRange: "May 2022 (current employment)",
-    description: "Building out the metaverse...",
+    description: "Part of an incubator team building out metaverse-related technologies",
     url: "https://www.improbable.io/",
     bulletPoints: [],
   },

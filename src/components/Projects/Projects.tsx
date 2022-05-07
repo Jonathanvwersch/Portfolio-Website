@@ -39,8 +39,6 @@ const Projects = () => {
         <ProjectsList>
           <ListItem>
             {ProjectData.map((props, i) => {
-              console.log(data)
-
               return (
                 <Project
                   {...props}

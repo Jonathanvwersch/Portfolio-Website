@@ -20,7 +20,7 @@ const navDetails = [
   { href: "Skills", title: "Skills" },
   { href: "Work", title: "Work and Education" },
   { href: "Projects", title: "Projects" },
-  { href: "Blog", title: "Blog" },
+  // { href: "Blog", title: "Blog" },
   { href: "Contact", title: "Contact" },
 ]
 
