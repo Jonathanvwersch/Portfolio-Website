@@ -31,22 +31,22 @@ const Footer = () => {
             <GithubIcon />
           </ExternalLink>
         </IconWrapper>
-        <IconWrapper as="li">
+        {/* <IconWrapper as="li">
           <ExternalLink
             href="https://twitter.com/jonathanvwersch"
             ariaLabel="Click here to visit my Twitter"
           >
             <TwitterIcon />
           </ExternalLink>
-        </IconWrapper>
-        <IconWrapper as="li">
+        </IconWrapper> */}
+        {/* <IconWrapper as="li">
           <ExternalLink
             href="https://www.youtube.com/channel/UCksfLzZQrOTSVkr2auvac_w"
             ariaLabel="Click here to visit my Youtube page"
           >
             <YoutubeIcon />
           </ExternalLink>
-        </IconWrapper>
+        </IconWrapper> */}
       </Flex>
       <Paragraph>
         Built by Jonathan van Wersch. Design is heavily inspired by{" "}
