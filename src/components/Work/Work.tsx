@@ -29,9 +29,11 @@ const jobs: JobType = {
     company: "Improbable",
     title: "Software Engineer",
     dateRange: "May 2022 (current employment)",
-    description: "Part of an incubator team building out metaverse-related technologies",
+    description:
+      "Part of an incubator team building out metaverse-related technologies as a full stack engineer",
     url: "https://www.improbable.io/",
     bulletPoints: [],
+    tech: "React, Jest, React Testing Library, Typescript, Material UI, Node, Express, Firebase, GCP",
   },
   [Tabs.ACRE]: {
     company: "Acre",
@@ -67,7 +69,7 @@ const jobs: JobType = {
 const Work = () => {
   const theme = useContext(ThemeContext)
   const [tab, setTab] = useState<Tabs>(Tabs.IMPROBABLE)
-  const domRef = useRef()
+  const domRef = useRef<any>(null)
   const isVisible = useVisibleOnScreen(domRef, true)
 
   const {

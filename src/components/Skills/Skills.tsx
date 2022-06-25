@@ -42,6 +42,8 @@ const skills = {
     "PostgreSQL",
     "Apollo Server",
     "REST APIs",
+    "Firebase",
+    "GCP",
   ],
   [Tabs.OTHER]: [
     "Git",
@@ -57,7 +59,7 @@ const skills = {
 const Skills = () => {
   const isVertical = useResponsiveLayout() === LAYOUT_VERTICAL
   const [tab, setTab] = useState<Tabs>(Tabs.PROGRAMMING)
-  const domRef = useRef()
+  const domRef = useRef<any>(null)
   const isVisible = useVisibleOnScreen(domRef, true)
 
   return (

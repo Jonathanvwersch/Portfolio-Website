@@ -7,10 +7,9 @@ import { useRef } from "react"
 import { FadeInAndTranslateSection } from "../StyledComponents"
 import { ProjectData } from "./Project.helpers"
 import { graphql, useStaticQuery } from "gatsby"
-import { getImage } from "gatsby-plugin-image"
 
 const Projects = () => {
-  const domRef = useRef()
+  const domRef = useRef<any>(null)
   const isVisible = useVisibleOnScreen(domRef, true)
   const data = useStaticQuery(graphql`
     query ProjectsQuery {

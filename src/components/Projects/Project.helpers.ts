@@ -43,4 +43,16 @@ const Portfolio = {
   githubLink: "https://github.com/Jonathanvwersch/Portfolio-Website",
 }
 
-export const ProjectData = [Dekked, Portfolio]
+const HabitTracker = {
+  title: "Habit tracking app",
+  bulletPoints: [
+    "Built a habit tracking app as a trial app between myself and someone I met through Y-Combinator's co-founder matching portal",
+    "Learned how to work closely alongside one other developer",
+    "Designed the app in Figma",
+    "Built out both the frontend and backend",
+  ],
+  skills: ["React Native", "Firebase", "Express", "Expo", "Redux"],
+  githubLink: "https://github.com/Project-J-J/HabitTracker",
+}
+
+export const ProjectData = [Dekked, Portfolio, HabitTracker]
