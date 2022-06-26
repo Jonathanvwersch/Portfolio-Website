@@ -6236,7 +6236,7 @@
     "@babel/core" "^7.15.5"
     "@babel/runtime" "^7.15.4"
 
-"gatsby@^4.0.0-next", "gatsby@4.7.2":
+"gatsby@^4.0.0-next", "gatsby@4.7":
   "integrity" "sha512-DY7qoFQ8y+14UsmEkzWigHWPkkJ79elu6A2nDjg19YV8K8k96PlexkYLDYOI5kSBiCmCV+ZURVfexuVU0U0HDA=="
   "resolved" "https://registry.npmjs.org/gatsby/-/gatsby-4.7.2.tgz"
   "version" "4.7.2"

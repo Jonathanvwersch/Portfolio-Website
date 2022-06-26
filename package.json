@@ -9,7 +9,7 @@
     "@types/rebass__grid": "^6.0.9",
     "@types/styled-components": "^5.1.24",
     "babel-plugin-styled-components": "^2.0.6",
-    "gatsby": "4.7.2",
+    "gatsby": "4.7",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-gatsby-cloud": "^4.8.0",
     "gatsby-plugin-image": "^2.8.0",
