@@ -1,5 +1,6 @@
 const Dekked = {
   title: "Dekked",
+  imageName: "Dekked.png",
   bulletPoints: [
     "Dekked is an integrated flashcard and note-taking application",
     "Raised £3250 in equity-free funding",
@@ -26,6 +27,7 @@ const Dekked = {
 
 const Portfolio = {
   title: "Portfolio/Blog",
+  imageName: "Portfolio.png",
   bulletPoints: [
     "Built this portfolio website to showcase some of my work",
     "Added a blog using Netlify CMS, GraphQL, and Gatsby",
@@ -45,8 +47,10 @@ const Portfolio = {
 
 const HabitTracker = {
   title: "Habit tracking app",
+  imageName: "HabitTracker.jpeg",
   bulletPoints: [
-    "Built a habit tracking app as a trial app between myself and someone I met through Y-Combinator's co-founder matching portal",
+    "Built a habit tracking app as a trial app between myself and someone I met through Y-Combinator's co-founder matching portal to see if we like working together",
+    "Built after work and on the weekends over the course of one month",
     "Learned how to work closely alongside one other developer",
     "Designed the app in Figma",
     "Built out both the frontend and backend",

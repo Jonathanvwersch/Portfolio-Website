@@ -37,14 +37,15 @@ const Projects = () => {
         <H2 className="numbered-header after-single-line">Projects</H2>
         <ProjectsList>
           <ListItem>
-            {ProjectData.map((props, i) => {
+            {ProjectData.map(props => {
+              const image = data.allFile.edges.find(
+                edge => edge.node.base === props.imageName
+              )
               return (
                 <Project
                   {...props}
                   key={props.title}
-                  image={
-                    data.allFile.edges[i].node.childImageSharp.gatsbyImageData
-                  }
+                  image={image.node.childImageSharp.gatsbyImageData}
                 />
               )
             })}
