@@ -4,12 +4,13 @@ import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import * as React from "react"
 import { useContext, useState } from "react"
 import styled, { ThemeContext } from "styled-components"
-import { Button, ExternalLink, H3, IconWrapper } from ".."
+import { Button, ExternalLink, H3, H6, IconWrapper } from ".."
 import { SIZES } from "../../definitions"
 import { CloseIcon, GithubIcon, PlayIcon } from "../../icons"
 
 type Props = {
   title: string
+  date: string
   bulletPoints: string[]
   skills: string[]
   image: IGatsbyImageData
@@ -24,6 +25,7 @@ const Project = ({
   image,
   githubLink,
   videoLink,
+  date,
 }: Props) => {
   const theme = useContext(ThemeContext)
   const [showDescription, setShowDescription] = useState<boolean>(false)
@@ -62,7 +64,11 @@ const Project = ({
         </IconWrapper>
 
         <Description>
-          <H3 styledAs="h5">{title}</H3>
+          <Flex justifyContent="space-between">
+            <H3 styledAs="h5">{title}</H3>
+            <p>{date}</p>
+          </Flex>
+
           <BulletPointsWrapper>
             {bulletPoints.map(b => (
               <li key={b}>{b}</li>

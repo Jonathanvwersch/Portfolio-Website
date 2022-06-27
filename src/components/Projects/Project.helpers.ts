@@ -1,6 +1,7 @@
 const Dekked = {
   title: "Dekked",
   imageName: "Dekked.png",
+  date: "Feb 2021 – Nov 2021",
   bulletPoints: [
     "Dekked is an integrated flashcard and note-taking application",
     "Raised £3250 in equity-free funding",
@@ -28,6 +29,7 @@ const Dekked = {
 const Portfolio = {
   title: "Portfolio/Blog",
   imageName: "Portfolio.png",
+  date: "Apr 2022 – ",
   bulletPoints: [
     "Built this portfolio website to showcase some of my work",
     "Added a blog using Netlify CMS, GraphQL, and Gatsby",
@@ -48,6 +50,7 @@ const Portfolio = {
 const HabitTracker = {
   title: "Habit tracking app",
   imageName: "HabitTracker.jpeg",
+  date: "May 2022 – Jun 2022",
   bulletPoints: [
     "Built a habit tracking app as a trial app between myself and someone I met through Y-Combinator's co-founder matching portal to see if we like working together",
     "Built after work and on the weekends over the course of one month",
