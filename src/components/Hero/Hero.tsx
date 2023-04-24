@@ -5,7 +5,7 @@ import { SIZES } from "../../definitions"
 import { H1, H2, H3 } from "../Headers/Headers"
 import { Paragraph } from "../Paragraph"
 // @ts-ignore
-import Resume from "../../pdfs/Jvw_Resume.pdf"
+import Resume from "../../pdfs/Jonathan_van_Wersch_Online_CV.pdf"
 import { fadeInAnimation } from "../StyledComponents"
 
 type HeroProps = {}
@@ -42,7 +42,8 @@ const Hero: React.FC<HeroProps> = () => {
         >
           Improbable
         </ExternalLink>
-        . I have passion for building out products that make a positive difference to the world.
+        . I have passion for building out products that make a positive
+        difference to the world.
       </Paragraph>
       <Button as="a" size={SIZES.MEDIUM} href={Resume}>
         Download my resume

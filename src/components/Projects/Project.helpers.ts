@@ -1,3 +1,27 @@
+const Limberr = {
+  title: "Limberr",
+  imageName: "Limberr.webp",
+  date: "Sep 2022 – present",
+  bulletPoints: [
+    "Co-founded Limberr - a web application that allows fitness content creators to monetise their content",
+    "Developed our modular and scalable frontend using NextJs and aided in the development of GraphQL APIs using Apollo to serve our backend",
+    "Wrote SQL schemas to define our normalised, relational database",
+    "Led the development of the entire site’s infrastructure using Docker and AWS (Lambda, RDS, ECR, EC2, S3, and CloudFormation)",
+  ],
+  skills: [
+    "React",
+    "NextJs",
+    "Typescript",
+    "PostgresSQL",
+    "Docker",
+    "GraphQL",
+    "Express",
+    "Apollo",
+    "AWS (CloudFormation, Lambda, EC2, ECR, S3)",
+  ],
+  websiteLink: "https://www.limberr.com",
+}
+
 const Dekked = {
   title: "Dekked",
   imageName: "Dekked.png",
@@ -47,19 +71,4 @@ const Portfolio = {
   githubLink: "https://github.com/Jonathanvwersch/Portfolio-Website",
 }
 
-const HabitTracker = {
-  title: "Habit tracking app",
-  imageName: "HabitTracker.jpeg",
-  date: "May 2022 – Jun 2022",
-  bulletPoints: [
-    "Built a habit tracking app as a trial app between myself and someone I met through Y-Combinator's co-founder matching portal to see if we like working together",
-    "Built after work and on the weekends over the course of one month",
-    "Learned how to work closely alongside one other developer",
-    "Designed the app in Figma",
-    "Built out both the frontend and backend",
-  ],
-  skills: ["React Native", "Firebase", "Express", "Expo", "Redux"],
-  githubLink: "https://github.com/Project-J-J/HabitTracker",
-}
-
-export const ProjectData = [Dekked, Portfolio, HabitTracker]
+export const ProjectData = [Limberr, Dekked, Portfolio]

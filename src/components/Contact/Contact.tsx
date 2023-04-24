@@ -22,8 +22,7 @@ const About = () => {
         fontSize={theme.typography.fontSizes.size14}
       >
         I'm always looking to connect with like-minded people so feel free to
-        reach out to me. I'm not currently looking for any new job
-        opportunities, but my inbox remains open regardless!
+        reach out to me.
       </Paragraph>
       <Button as="a" href="mailto:jonathanvwersch@gmail.com">
         Contact me

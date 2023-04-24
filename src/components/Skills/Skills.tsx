@@ -11,22 +11,18 @@ enum Tabs {
   FRONTEND = "FRONTEND",
   BACKEND = "BACKEND",
   PROGRAMMING = "PROGRAMMING",
-  OTHER = "OTHER",
+  INFRASTRUCTURE = "INFRASTRUCTURE",
 }
 
 const skills = {
   [Tabs.FRONTEND]: [
     "React",
     "React Native",
-    "Styled Components",
     "GraphQL (Apollo)",
-    "RTL/Jest/Enzyme",
-    "Cypress",
-    "RXJs",
+    "Testing",
     "NextJs",
-    "Storybook",
-    "React Query",
-    "Web accessibility",
+    "HTML",
+    "CSS",
   ],
   [Tabs.PROGRAMMING]: [
     "Typescript",
@@ -45,15 +41,7 @@ const skills = {
     "Firebase",
     "GCP",
   ],
-  [Tabs.OTHER]: [
-    "Git",
-    "Jira",
-    "Public speaking",
-    "Communication",
-    "Collaboration",
-    "Problem solving",
-    "Figma",
-  ],
+  [Tabs.INFRASTRUCTURE]: ["Docker", "AWS", "GCP", "Terraform"],
 }
 
 const Skills = () => {
@@ -90,10 +78,10 @@ const Skills = () => {
           Backend
         </TabButton>
         <TabButton
-          isActive={tab === Tabs.OTHER}
-          onClick={() => setTab(Tabs.OTHER)}
+          isActive={tab === Tabs.INFRASTRUCTURE}
+          onClick={() => setTab(Tabs.INFRASTRUCTURE)}
         >
-          Other
+          Infrastructure
         </TabButton>
       </Flex>
       <SkillList isVertical={isVertical}>

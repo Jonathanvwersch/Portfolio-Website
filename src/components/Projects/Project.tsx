@@ -6,7 +6,7 @@ import { useContext, useState } from "react"
 import styled, { ThemeContext } from "styled-components"
 import { Button, ExternalLink, H3, H6, IconWrapper } from ".."
 import { SIZES } from "../../definitions"
-import { CloseIcon, GithubIcon, PlayIcon } from "../../icons"
+import { CloseIcon, GithubIcon, PlayIcon, WebsiteIcon } from "../../icons"
 
 type Props = {
   title: string
@@ -16,6 +16,7 @@ type Props = {
   image: IGatsbyImageData
   githubLink?: string
   videoLink?: string
+  websiteLink?: string
 }
 
 const Project = ({
@@ -26,7 +27,9 @@ const Project = ({
   githubLink,
   videoLink,
   date,
+  websiteLink,
 }: Props) => {
+  console.log(websiteLink)
   const theme = useContext(ThemeContext)
   const [showDescription, setShowDescription] = useState<boolean>(false)
 
@@ -41,7 +44,6 @@ const Project = ({
         <HeaderWrapper>
           <H3 styledAs="h6">{title}</H3>
         </HeaderWrapper>
-
         <LearnMore>
           <Button handleClick={() => setShowDescription(true)}>
             Learn more
@@ -52,8 +54,8 @@ const Project = ({
         <IconWrapper
           styles={{
             position: "absolute",
-            top: theme.spacers.size8,
-            right: theme.spacers.size8,
+            top: theme.spacers.size4,
+            right: theme.spacers.size4,
             zIndex: 1,
           }}
           as="button"
@@ -80,7 +82,7 @@ const Project = ({
             ))}
           </Skills>
 
-          {githubLink || videoLink ? (
+          {githubLink || videoLink || websiteLink ? (
             <Flex
               style={{ gap: theme.spacers.size16 }}
               alignItems="center"
@@ -102,6 +104,14 @@ const Project = ({
                   ariaLabel={`Github link for project with name ${title}`}
                 >
                   <GithubIcon size={SIZES.XLARGE} />
+                </ExternalLink>
+              )}
+              {websiteLink && (
+                <ExternalLink
+                  href={websiteLink}
+                  ariaLabel={`Website link for project with name ${title}`}
+                >
+                  <WebsiteIcon size={SIZES.XLARGE} />
                 </ExternalLink>
               )}
             </Flex>

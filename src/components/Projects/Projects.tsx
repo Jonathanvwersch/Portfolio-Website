@@ -15,7 +15,7 @@ const Projects = () => {
     query ProjectsQuery {
       allFile(
         filter: {
-          extension: { regex: "/(jpg)|(png)|(jpeg)/" }
+          extension: { regex: "/(jpg)|(png)|(jpeg)|(webp)/" }
           relativeDirectory: { eq: "images/projects" }
         }
       ) {
