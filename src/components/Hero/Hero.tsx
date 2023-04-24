@@ -5,7 +5,7 @@ import { SIZES } from "../../definitions"
 import { H1, H2, H3 } from "../Headers/Headers"
 import { Paragraph } from "../Paragraph"
 // @ts-ignore
-import Resume from "../../pdfs/Jonathan_van_Wersch_Online_CV.pdf"
+import Resume from "../../pdfs/resume.pdf"
 import { fadeInAnimation } from "../StyledComponents"
 
 type HeroProps = {}
