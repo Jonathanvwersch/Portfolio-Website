@@ -19,7 +19,7 @@ const Limberr = {
     "Apollo",
     "AWS (CloudFormation, Lambda, EC2, ECR, S3)",
   ],
-  websiteLink: "https://www.limberr.com",
+  websiteLink: "https://limberr.com",
 }
 
 const Dekked = {
