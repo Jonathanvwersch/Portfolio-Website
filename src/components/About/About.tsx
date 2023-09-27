@@ -36,10 +36,10 @@ const About = () => {
           field than mechanical engineering, which often moves more slowly.
           <br></br>
           <br></br>I am currently working as a software engineer at Improbable,
-          an all-in-one mortgage platform for brokers and customers. Outside of
-          work, I love exercising and staying healthy — I am an avid runner and
-          sports player. I also love to work on engineering-related side
-          projects.
+          which creates new ways to connect, play, create and build value across
+          interconnected virtual worlds. Outside of work, I love exercising and
+          staying healthy — I am an avid runner and sports player. I also love
+          to work on engineering-related side projects.
         </Paragraph>
         <StaticImage
           src={ProfilePic}
