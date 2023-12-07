@@ -31,14 +31,14 @@ const Footer = () => {
             <GithubIcon />
           </ExternalLink>
         </IconWrapper>
-        {/* <IconWrapper as="li">
+        <IconWrapper as="li">
           <ExternalLink
             href="https://twitter.com/jonathanvwersch"
             ariaLabel="Click here to visit my Twitter"
           >
             <TwitterIcon />
           </ExternalLink>
-        </IconWrapper> */}
+        </IconWrapper>
         {/* <IconWrapper as="li">
           <ExternalLink
             href="https://www.youtube.com/channel/UCksfLzZQrOTSVkr2auvac_w"
