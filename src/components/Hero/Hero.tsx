@@ -45,7 +45,8 @@ const Hero: React.FC<HeroProps> = () => {
         . I have passion for building out products that make a positive
         difference to the world.
       </Paragraph>
-      <Button as="a" size={SIZES.MEDIUM} href={Resume}>
+      {/* @ts-expect-error */}
+      <Button as="a" target="__blank" size={SIZES.MEDIUM} href={"https://drive.google.com/file/d/1NPVZ-V0QfFBjnu-RT58xl97xXVcmkiHw/view?usp=sharing"}>
         Download my resume
       </Button>
     </StyledHero>
