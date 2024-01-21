@@ -1,12 +1,13 @@
 const Limberr = {
   title: "Limberr",
   imageName: "Limberr.webp",
-  date: "Sep 2022 – present",
+  date: "May 2023 – present",
   bulletPoints: [
     "Co-founded Limberr - a web application that allows fitness content creators to monetise their content",
-    "Developed our modular and scalable frontend using NextJs and aided in the development of GraphQL APIs using Apollo to serve our backend",
-    "Wrote SQL schemas to define our normalised, relational database",
-    "Led the development of the entire site’s infrastructure using Docker and AWS (Lambda, RDS, ECR, EC2, S3, and CloudFormation)",
+    "Developed our front-end using Next.js and aided in the development of GraphQL APIs using Apollo to serve our back-end",
+    "Established a normalized and relational SQL database to optimize data management and retrieval",
+    "Orchestrated the development of the site’s infrastructure leveraging Docker and AWS services (Lambda, S3, RDS, ECR, EC2, CloudFormation), ensuring robust and scalable solutions",
+    "Developed our cross-platform mobile application for iOS and Android using React Native"
   ],
   skills: [
     "React",
@@ -19,7 +20,7 @@ const Limberr = {
     "Apollo",
     "AWS (CloudFormation, Lambda, EC2, ECR, S3)",
   ],
-  websiteLink: "https://limberr.com",
+  websiteLink: "https://limberr.com/creators",
 }
 
 const Dekked = {

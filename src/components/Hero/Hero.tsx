@@ -4,8 +4,6 @@ import { Button, ExternalLink } from ".."
 import { SIZES } from "../../definitions"
 import { H1, H2, H3 } from "../Headers/Headers"
 import { Paragraph } from "../Paragraph"
-// @ts-ignore
-import Resume from "../../pdfs/resume.pdf"
 import { fadeInAnimation } from "../StyledComponents"
 
 type HeroProps = {}

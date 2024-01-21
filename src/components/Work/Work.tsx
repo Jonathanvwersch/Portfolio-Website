@@ -27,19 +27,21 @@ type JobType = {
 const jobs: JobType = {
   [Tabs.IMPROBABLE]: {
     company: "Improbable",
-    title: "Software Engineer",
+    title: "Senior Software Engineer",
     dateRange: "May 2022 - present",
     description:
       "Improbable creates new ways to connect, play, create and build value across interconnected virtual worlds",
     url: "https://www.improbable.io/",
     bulletPoints: [
-      "Aided in the development of both the front and back-end for our web platform during 2 high profile live events whose success led to new clients as well as profitability at the company",
+      "Devised a server-side queuing system and reconciler for our virtual world environments using Node.js, Google Cloud, Firebase and Express, to efficiently manage the transition of over 15,000 concurrent users during our live events",
       "Built a serverless queuing system and reconciler to move and replace 15K+ users in our virtual worlds",
-      "Managed the war room for the web platform team during live virtual events, providing realtime updates and web metrics to a cross-functional team of 30+ employees",
-      "Spearheaded the adoption of unit, integration, and end-to-end testing across the web platform mono-repo, resulting in the highest test coverage among all repositories at Improbable",
-      "Mentored two graduate engineers on coding practices and design principles",
+      "Responsible for designing and engineering robust back-end services using TypeScript, Node.js, Google Cloud, Fastify/Express, and Firebase for the management of our virtual events",
+      "Led the overhaul of our front-end Next.js, React, Redux and TypeScript code into seven shared and modular Github packages, which are used across more than eight repositories, reducing bugs and boosting efficiency",
+      "Lead and mentor a team of four engineers, driving project success and enhancing team collaboration",
+      "Instrumental in the development of the different front-ends and back-end of our web platform, which has been used to host over 10 high profile live events, such as Yuga Labs’ Second Trip event",
+      "Orchestrated the war-room operations for the web platform team during 5+ live events, delivering critical real-time updates and web metrics to a diverse team of 30+ employees."
     ],
-    tech: "React, Jest, React Testing Library, Typescript, Material UI, Node, Express, Firebase, GCP",
+    tech: "Node.js, Next.js, React, npm, Jest, React Testing Library, Typescript, Material UI, Express, Fastify, Firebase, Terraform, GCP",
   },
   [Tabs.ACRE]: {
     company: "Acre",
@@ -49,9 +51,9 @@ const jobs: JobType = {
       "Acre is an all-in-one mortgage platform, which serves both brokers and clients",
     url: "https://www.acresoftware.com",
     bulletPoints: [
-      "Developed components using React and Typescript, and led the creation of a design system to improve standardisation across repositories",
-      "Pushed for the adoption and enforcement of more unit tests and wrote all end-to-end tests, resulting in a large increase in the overall test coverage of our mono-repo",
-      "Independently re-developed much of the front-end of Acre’s mortgage sourcing application, resulting in it being considered the favourite part of our app by mortgage brokers",
+      "Designed and implemented React and TypeScript code for our front-end and established a design system to ensure consistency across various repositories",
+      "Championed and augmented test coverage through comprehensive unit testing, personally authoring all end-to-end tests which resulted in a 50% increase in test coverage",
+      "Led the front-end overhaul of Acre’s mortgage sourcing application, greatly improving the overall user experience, which led to considerable praise from the brokers using our platform",
     ],
     tech: "React, GraphQL (Apollo), React Testing Library, Cypress, Typescript, Styled Components, React Final Form, React Native",
   },
@@ -63,6 +65,7 @@ const jobs: JobType = {
       "Completed an integrated masters in mechanical engineering graduating with first-class honours",
     url: "https://www.acresoftware.com",
     bulletPoints: [
+      "Project manager and systems integrator for the Bath University Rocket team",
       "Modules studied include System Modelling and Simulation, Design, Fluid Dynamics, Systems and Control, Solid Mechanics, Design, and Business Processes",
       "Played a number of sports throughout my time at university, such as football, basketball, and volleyball",
     ],
@@ -113,10 +116,10 @@ const Work = () => {
   return (
     <StyledSection id="Work" ref={domRef} isVisible={isVisible} as="section">
       <H2 className="numbered-header after-single-line">Work and Education</H2>
-      <Flex style={{ gap: theme.spacers.size32, minHeight: "330px" }}>
+      <Flex style={{ gap: theme.spacers.size16, minHeight: "330px" }}>
         <Flex
           flexDirection="column"
-          style={{ borderLeft: `solid 1px ${theme.colors.faintColor}` }}
+          style={{ borderLeft: `solid 1px ${theme.colors.faintColor}`, height: "400px" }}
         >
           <TabButton
             isActive={tab === Tabs.IMPROBABLE}
@@ -147,11 +150,10 @@ const StyledSection = styled(FadeInAndTranslateSection)``
 
 const SkillList = styled.ul`
   gap: 0px 10px;
-  padding: 0px;
   margin: 8px 0px 0px;
   overflow: hidden;
-  list-style: none;
   color: ${({ theme }) => theme.colors.fontColor};
+  padding: 0px 16px;
 `
 
 const SkillItem = styled.li`
@@ -160,13 +162,9 @@ const SkillItem = styled.li`
   position: relative;
   margin-bottom: ${({ theme }) => theme.spacers.size8};
   gap: ${({ theme }) => theme.spacers.size8};
+  display: list-item;
   font-family: ${({ theme }) => theme.typography.fontFamilyMono};
   font-size: ${({ theme }) => theme.typography.fontSizes.size12};
-
-  :before {
-    content: "▹";
-    color: ${({ theme }) => theme.colors.primary};
-  }
 `
 
 const TabButton = styled.button<{ isActive?: boolean }>`
@@ -174,6 +172,7 @@ const TabButton = styled.button<{ isActive?: boolean }>`
   cursor: pointer;
   background: transparent;
   border: none;
+  width: 90px;
   padding: ${({ theme }) => theme.spacers.size8};
   border-left: ${({ theme, isActive }) =>
     isActive && `solid 2px ${theme.colors.primary}`};

@@ -167,7 +167,9 @@ const Skills = styled.ul`
   margin: 25px 0px 10px;
   padding: 0px;
   list-style: none;
+
   li {
+
     white-space: nowrap;
     margin: 0px ${({ theme }) => theme.spacers.size8}
       ${({ theme }) => theme.spacers.size4} 0px;
@@ -181,13 +183,9 @@ const BulletPointsWrapper = styled.ul`
   li {
     margin-bottom: ${({ theme }) => theme.spacers.size8};
     font-size: ${({ theme }) => theme.typography.fontSizes.size16};
-    display: flex;
-    flex-direction: row;
-    list-style: none;
 
     :before {
       margin-right: ${({ theme }) => theme.spacers.size12};
-      content: "▹";
       color: ${({ theme }) => theme.colors.primary};
     }
   }
