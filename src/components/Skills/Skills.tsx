@@ -38,7 +38,6 @@ const skills = {
     "Node.js",
     "Express",
     "Fastify",
-    "PostgreSQL",
     "Apollo Server",
     "REST APIs",
     "Firebase",
