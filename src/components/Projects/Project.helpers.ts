@@ -11,7 +11,7 @@ const Limberr = {
   ],
   skills: [
     "React",
-    "NextJs",
+    "Next.js",
     "Typescript",
     "PostgresSQL",
     "Docker",
@@ -41,7 +41,7 @@ const Dekked = {
     "React Query",
     "Styled Components",
     "Typescript",
-    "NodeJs",
+    "Node.js",
     "Express",
     "Render",
     "Netlify",
